@@ -2,6 +2,8 @@
 
 一套安静的、以排版为主的单栏设计语言：一栏文字，四级灰度，三种字重。适合个人主页、博客、作品集、文档这类以阅读为主的网站。
 
+**在线示例：<https://wolfyxbt.github.io/quiet-design-system/>**
+
 风格提炼自 [brianlovin.com](https://brianlovin.com/about)。本仓库只包含从公开页面归纳出的设计规律（色值、字号、间距、组件结构），不包含原站点的任何文字、图片或代码，与原作者没有关联。
 
 ## 包含什么
@@ -12,7 +14,7 @@
 | [tokens.css](tokens.css) | 全部设计变量（CSS 自定义属性），含深色模式 |
 | [components.css](components.css) | 基础样式和组件类，类名以 `q-` 开头 |
 | [tailwind-theme.css](tailwind-theme.css) | Tailwind CSS v4 主题，把变量映射成工具类 |
-| [example/index.html](example/index.html) | 示例页面，展示所有组件 |
+| [index.html](index.html) | 示例页面，展示所有组件，也是在线示例的源文件 |
 
 ## 怎么用
 
@@ -92,4 +94,4 @@
 python3 -m http.server 4173
 ```
 
-然后打开 `http://localhost:4173/example/`。
+然后打开 `http://localhost:4173/`。

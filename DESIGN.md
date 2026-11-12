@@ -139,7 +139,7 @@
 
 ## 组件
 
-完整可运行的例子见 [example/index.html](example/index.html)。
+完整可运行的例子见 [index.html](index.html)，在线效果见 <https://wolfyxbt.github.io/quiet-design-system/>。
 
 ### 顶栏 `.q-topbar`
 
