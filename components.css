@@ -32,6 +32,7 @@ body {
   line-height: var(--leading-body);
   color: var(--text-primary);
   font-synthesis-weight: none; /* 不让浏览器伪造粗体 */
+  text-autospace: normal; /* 中文和西文、数字之间自动留出空隙（新版浏览器支持，旧版忽略） */
 }
 
 a {
@@ -264,7 +265,7 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--text-quaternary);
-  text-underline-offset: 2px;
+  text-underline-offset: var(--underline-offset);
   word-break: break-word;
 }
 
@@ -336,7 +337,7 @@ a {
 .q-row-title {
   font-weight: var(--weight-medium);
   color: var(--text-primary);
-  text-underline-offset: 1px;
+  text-underline-offset: var(--underline-offset-row);
 }
 
 .q-row-meta {
@@ -446,10 +447,10 @@ a {
 .q-prose {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--gap-paragraph);
   min-width: 0;
   font-size: var(--text-lg);
-  line-height: var(--leading-body);
+  line-height: var(--leading-prose);
   color: var(--text-primary);
 }
 
@@ -462,7 +463,7 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--text-quaternary);
-  text-underline-offset: 2px;
+  text-underline-offset: var(--underline-offset);
   word-break: break-word;
 }
 
@@ -478,6 +479,12 @@ a {
   margin-top: var(--space-5);
   font-size: var(--text-xl);
   font-weight: var(--weight-bold);
+}
+
+/* 中文没有斜体，硬倾斜很难看：强调改用中等字重 */
+.q-prose em:lang(zh) {
+  font-style: normal;
+  font-weight: var(--weight-medium);
 }
 
 .q-prose ul,
@@ -615,7 +622,7 @@ a {
 .q-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--gap-paragraph);
 }
 
 .q-stack--loose {

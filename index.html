@@ -1,51 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiet Design System</title>
-    <meta name="description" content="A quiet, typography-first design system: one column, four grays, three weights." />
+    <meta name="description" content="一套安静的、以排版为主的中文设计系统：一栏文字，四级灰度，三种字重。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="components.css" />
   </head>
   <body>
-    <!-- Top bar -->
+    <!-- 顶栏 -->
     <header class="q-topbar">
-      <button class="q-icon-button" id="menu" aria-label="Menu" aria-expanded="false">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
           <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
       </button>
-      <a href="#">Your Name</a>
+      <a href="#">你的名字</a>
       <span class="q-topbar-sep">/</span>
-      <a href="#">About</a>
+      <a href="#">关于</a>
     </header>
 
-    <!-- Nav overlay -->
+    <!-- 全屏导航 -->
     <nav class="q-nav" id="nav" hidden>
       <div class="q-nav-group">
-        <a class="q-nav-link" href="#">Home</a>
-        <a class="q-nav-link" href="#" aria-current="page">About</a>
-        <a class="q-nav-link" href="#">Writing</a>
+        <a class="q-nav-link" href="#">首页</a>
+        <a class="q-nav-link" href="#" aria-current="page">关于</a>
+        <a class="q-nav-link" href="#">文章</a>
       </div>
       <div class="q-nav-group">
-        <span class="q-nav-label">Projects</span>
-        <a class="q-nav-link" href="#">Reading list</a>
-        <a class="q-nav-link" href="#">Toolbox</a>
-        <a class="q-nav-link" href="#">Notes</a>
+        <span class="q-nav-label">项目</span>
+        <a class="q-nav-link" href="#">书单</a>
+        <a class="q-nav-link" href="#">工具箱</a>
+        <a class="q-nav-link" href="#">笔记</a>
       </div>
     </nav>
 
-    <!-- Profile page -->
+    <!-- 个人主页 -->
     <main class="q-page q-page--airy">
       <div class="q-stack">
-        <h1 class="q-sr-only">About</h1>
+        <h1 class="q-sr-only">关于</h1>
         <svg class="q-avatar" viewBox="0 0 60 60" aria-hidden="true">
           <defs>
             <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
@@ -55,21 +55,18 @@
           </defs>
           <circle cx="30" cy="30" r="30" fill="url(#av)" />
         </svg>
-        <p class="q-lead">I'm a product designer living by the sea.</p>
+        <p class="q-lead">我是一名产品设计师，住在海边。</p>
         <p class="q-lead">
-          I'm currently building tools for small teams at <a class="q-link" href="#">Fieldnote</a>.
-          Before that, I co-founded <a class="q-link" href="#">Tidepool</a>, a calm place for
-          long-form team writing.
+          目前在 <a class="q-link" href="#">Fieldnote</a> 做面向小团队的工具。在此之前，我和朋友一起创办了<a class="q-link" href="#">潮池</a>，一个让团队安静写长文的地方。
         </p>
         <p class="q-lead">
-          Along the way I've hosted a <a class="q-link" href="#">podcast</a> about craft and kept a
-          public <a class="q-link" href="#">notebook</a> of things I learn.
+          这些年我还主持过一档聊设计的<a class="q-link" href="#">播客</a>，并且一直在公开的<a class="q-link" href="#">笔记本</a>里记录学到的东西。
         </p>
       </div>
 
       <ul class="q-icon-links">
         <li>
-          <a class="q-icon-link" href="#" aria-label="Email">
+          <a class="q-icon-link" href="#" aria-label="邮箱">
             <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="4" y="7" width="20" height="14" rx="3" />
               <path d="m5 9 9 7 9-7" />
@@ -77,7 +74,7 @@
           </a>
         </li>
         <li>
-          <a class="q-icon-link" href="#" aria-label="Feed">
+          <a class="q-icon-link" href="#" aria-label="订阅">
             <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
               <path d="M6 13a9 9 0 0 1 9 9M6 6a16 16 0 0 1 16 16" />
               <circle cx="7" cy="21" r="1.5" fill="currentColor" stroke="none" />
@@ -85,7 +82,7 @@
           </a>
         </li>
         <li>
-          <a class="q-icon-link" href="#" aria-label="Code">
+          <a class="q-icon-link" href="#" aria-label="代码">
             <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m10 9-5 5 5 5M18 9l5 5-5 5" />
             </svg>
@@ -93,26 +90,26 @@
         </li>
       </ul>
 
-      <!-- List: icon + title + meta + date -->
+      <!-- 列表：图标 + 名称 + 角色 + 时间 -->
       <section class="q-section">
-        <h2 class="q-section-label">Work</h2>
+        <h2 class="q-section-label">工作经历</h2>
         <ul class="q-list">
           <li>
             <a class="q-row" href="#">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="currentColor" /></svg>
               <span class="q-row-main">
                 <span class="q-row-title">Fieldnote</span>
-                <span class="q-row-meta">Product Designer</span>
+                <span class="q-row-meta">产品设计师</span>
               </span>
-              <span class="q-row-date">Current</span>
+              <span class="q-row-date">至今</span>
             </a>
           </li>
           <li>
             <a class="q-row" href="#">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#fc532a" /></svg>
               <span class="q-row-main">
-                <span class="q-row-title">Tidepool</span>
-                <span class="q-row-meta">Co-founder</span>
+                <span class="q-row-title">潮池</span>
+                <span class="q-row-meta">联合创始人</span>
               </span>
               <span class="q-row-date">2022–25</span>
             </a>
@@ -121,8 +118,8 @@
             <a class="q-row" href="#">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#737373" /></svg>
               <span class="q-row-main">
-                <span class="q-row-title">Northwind</span>
-                <span class="q-row-meta">Product Designer</span>
+                <span class="q-row-title">北风科技</span>
+                <span class="q-row-meta">产品设计师</span>
               </span>
               <span class="q-row-date">2018–22</span>
             </a>
@@ -130,54 +127,54 @@
         </ul>
       </section>
 
-      <!-- List: title + description -->
+      <!-- 列表：名称 + 一句话描述 -->
       <section class="q-section">
-        <h2 class="q-section-label">Projects</h2>
+        <h2 class="q-section-label">项目</h2>
         <ul class="q-list">
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title">Reading list</span>
-              <span class="q-row-meta">Books worth a second pass</span>
+              <span class="q-row-title">书单</span>
+              <span class="q-row-meta">值得读第二遍的书</span>
             </a>
           </li>
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title">Toolbox</span>
-              <span class="q-row-meta">My favorite apps and tools</span>
+              <span class="q-row-title">工具箱</span>
+              <span class="q-row-meta">我常用的软件和工具</span>
             </a>
           </li>
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title">Notes</span>
+              <span class="q-row-title">笔记</span>
               <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <span class="q-row-meta">A public notebook</span>
+              <span class="q-row-meta">公开的笔记本</span>
             </a>
           </li>
         </ul>
       </section>
 
-      <!-- List: long title + date -->
+      <!-- 列表：长标题 + 日期 -->
       <section class="q-section">
-        <h2 class="q-section-label">Speaking</h2>
+        <h2 class="q-section-label">演讲</h2>
         <ul class="q-list">
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">Designing with fewer moving parts</span>
-              <span class="q-row-date">May '26</span>
+              <span class="q-row-title q-row-title--fill">少一些零件的设计</span>
+              <span class="q-row-date">2026.05</span>
             </a>
           </li>
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">What a two-person company taught me about scope</span>
-              <span class="q-row-date">Nov '25</span>
+              <span class="q-row-title q-row-title--fill">两个人的公司教会我的事</span>
+              <span class="q-row-date">2025.11</span>
             </a>
           </li>
           <li>
             <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">Boring routines</span>
-              <span class="q-row-date">Aug '24</span>
+              <span class="q-row-title q-row-title--fill">Design Talk 第 12 期：无聊的日常</span>
+              <span class="q-row-date">2024.08</span>
             </a>
           </li>
         </ul>
@@ -186,11 +183,11 @@
 
     <div class="q-hatch"></div>
 
-    <!-- Article page -->
+    <!-- 文章页 -->
     <article class="q-page q-page--article">
       <div class="q-stack q-stack--loose">
-        <p class="q-meta">Jan 19, 2026</p>
-        <h1 class="q-title">Keeping a small site small</h1>
+        <p class="q-meta">2026 年 1 月 19 日</p>
+        <h1 class="q-title">让小网站一直小下去</h1>
         <div>
           <button class="q-pill" type="button">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -203,25 +200,20 @@
 
       <div class="q-prose">
         <p>
-          Every page on this site is one column of text. There are no cards, no borders, and no
-          background fills. Hierarchy comes from four shades of gray and three font weights.
+          这个网站的每一页都只有一栏文字。没有卡片，没有边框，也没有底色块，层级全靠四级灰度和三种字重撑起来。
         </p>
         <p>
-          The whole thing is driven by a single file, <code>tokens.css</code>, and a handful of
-          classes. If you want the details, the <a href="#">source is public</a>.
+          整套样式由一个文件 <code>tokens.css</code> 和一组以 <code>q-</code> 开头的类组成。中文用苹方和思源黑体，英文和数字用 Inter，<em>中英文混排</em>时粗细和大小都对得上。想看细节的话，<a href="#">源码是公开的</a>。
         </p>
-        <h3>What I left out</h3>
+        <h3>我去掉了什么</h3>
         <ul>
-          <li>Accent colors, except for one four-pixel tick.</li>
-          <li>Hover backgrounds. Rows underline their title and nothing else.</li>
-          <li>Anything that needs a shadow to be understood.</li>
+          <li>强调色，只留下一条 4px 高的短线。</li>
+          <li>悬停底色。列表行只给标题加下划线，别的什么都不变。</li>
+          <li>任何要靠阴影才能看懂的东西。</li>
         </ul>
-        <blockquote>
-          A layout this plain only works if the type is set carefully, so that is where the effort
-          goes.
-        </blockquote>
+        <blockquote>版面越朴素，对排版的要求就越高，所以功夫都花在字上。</blockquote>
         <hr />
-        <p>That's the entire system. It fits in your head, which is the point.</p>
+        <p>整套系统就这么多，脑子里装得下，这正是它的目的。</p>
       </div>
     </article>
 
@@ -230,18 +222,18 @@
     <div class="q-page q-page--article">
       <section class="q-section">
         <div class="q-tick"></div>
-        <h2 class="q-section-label">Read next</h2>
+        <h2 class="q-section-label">延伸阅读</h2>
         <ul class="q-list">
-          <li><a class="q-row" href="#"><span class="q-row-title">Four grays are enough</span></a></li>
-          <li><a class="q-row" href="#"><span class="q-row-title">Notes on monospace dates</span></a></li>
-          <li><a class="q-row" href="#"><span class="q-row-title">One column, on purpose</span></a></li>
+          <li><a class="q-row" href="#"><span class="q-row-title">四级灰度就够了</span></a></li>
+          <li><a class="q-row" href="#"><span class="q-row-title">等宽日期的小讲究</span></a></li>
+          <li><a class="q-row" href="#"><span class="q-row-title">为什么只用一栏</span></a></li>
         </ul>
       </section>
 
-      <!-- Demo only: not part of the design system -->
+      <!-- 仅用于演示，不属于设计系统 -->
       <div style="display: flex; gap: 8px">
-        <button class="q-pill" type="button" id="theme">Toggle theme</button>
-        <a class="q-pill" href="https://github.com/wolfyxbt/quiet-design-system">View on GitHub</a>
+        <button class="q-pill" type="button" id="theme">切换深浅色</button>
+        <a class="q-pill" href="https://github.com/wolfyxbt/quiet-design-system">在 GitHub 上查看</a>
       </div>
     </div>
 

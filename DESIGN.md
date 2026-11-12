@@ -53,21 +53,58 @@
 
 ## 字体
 
-- **无衬线**：Inter（可变字体，100–900），后备为系统字体。
-- **等宽**：系统等宽字体（`ui-monospace`、SF Mono、Menlo…），只用于列表右侧的日期和代码。
-- 不开启字体合成粗体：`font-synthesis-weight: none`。
+这套系统以中文为主，同时照顾中英文混排。
+
+| 文字 | 字体 | 说明 |
+| --- | --- | --- |
+| 西文、数字 | Inter | 网页字体，可变字重 100–900 |
+| 中文（苹果设备） | 苹方 PingFang SC | 系统自带，不用下载 |
+| 中文（其他设备） | 思源黑体 Noto Sans SC | 网页字体，加载 400 / 500 / 700 三档 |
+| 等宽 | 系统等宽字体 | 只用于列表右侧的日期和代码 |
+
+字体栈的顺序是 `Inter → PingFang SC → Noto Sans SC → Microsoft YaHei → 系统字体`，几点说明：
+
+- **Inter 必须排在最前。** 这样西文和数字用 Inter，汉字自动落到后面的中文字体上。顺序反过来的话，英文会用中文字体自带的西文字形，粗细和间距都对不上。
+- **为什么要加载思源黑体。** 这套设计靠 400 和 500 两档字重区分"附注"和"主文字"。Windows 自带的微软雅黑只有常规和粗体，没有 500，两者会变得一样粗。思源黑体三档都有。
+- **苹果设备不会下载思源黑体。** 苹方排在它前面，浏览器只在前面的字体缺字时才去下载后面的网页字体。
+- **不开启字体合成粗体**（`font-synthesis-weight: none`）。苹方没有 700，标题会用它最粗的 600，不让浏览器硬描粗。
+- **页面要写 `<html lang="zh-CN">`。** 浏览器靠它选择简体字形和中文标点的排法，漏掉的话部分汉字可能显示成日文字形。
+
+### 中文排版规则
+
+汉字占满整个字框，没有西文那样的升部和降部，所以同样的参数下中文会显得更挤。和原版西文设计相比，中文做了这些调整：
+
+| 项目 | 中文（默认） | 英文（`lang="en"`） | 原因 |
+| --- | --- | --- | --- |
+| 正文行高 | 1.75 | 1.6 | 汉字更密，行间要更松 |
+| 引言行高 | 1.5 | 1.33 | 同上 |
+| 标题行高 | 1.3 | 1.2 | 同上 |
+| 标题字距 | 0 | -0.64px | 汉字收紧字距会粘在一起 |
+| 段落间距 | 20px | 16px | 行高变大后，段距要跟着变大才分得清段落 |
+| 链接下划线偏移 | 4px | 2px | 汉字底部贴着基线，下划线太近会压到笔画 |
+| 列表悬停下划线偏移 | 3px | 1px | 同上 |
+| 强调 `<em>` | 中等字重，不倾斜 | 斜体 | 中文没有斜体，硬倾斜很难看 |
+
+这些值都是 [tokens.css](tokens.css) 里的变量。给元素加上 `lang="en"`，它和它的子元素会自动换回英文的取值，所以同一个页面里可以中英文段落并存。
+
+另外几条书写约定：
+
+- **中英文、中文和数字之间加一个空格**（"在 Fieldnote 工作""共 12 期"）。新版 Chrome 和 Safari 会通过 `text-autospace` 自动留出空隙，但旧浏览器不会，手动加最稳妥，两者不会叠加。
+- **引号用直角引号「」**，或者接受弯引号 “” 显示得比较窄：因为 Inter 排在最前，弯引号会用 Inter 的半宽字形。
+- **日期用数字格式**（`2026.05`、`2022–25`），放在等宽的 `.q-row-date` 里才能右对齐成一列。"至今"这样的汉字也可以放，但尽量短。
+- **分组标签用两到四个字**（"项目""工作经历"），不加冒号。
 
 ### 字号表
 
 | 角色 | 字号 | 字重 | 行高 | 颜色 | 对应类 |
 | --- | --- | --- | --- | --- | --- |
-| 页面标题 | 30 → 36 → 40px | 700 | 1.2，字距 -0.64px | primary | `.q-title` |
-| 引言段落 | 24px | 500 | 32px | secondary | `.q-lead` |
+| 页面标题 | 30 → 36 → 40px | 700 | 1.3 | primary | `.q-title` |
+| 引言段落 | 24px | 500 | 1.5 | secondary | `.q-lead` |
 | 列表主文字 | 20px | 500 | 1.6 | primary | `.q-row-title` |
 | 列表附注 | 20px | 400 | 1.6 | quaternary | `.q-row-meta` |
 | 列表日期 | 19px 等宽 | 400 | — | quaternary，透明度 0.8 | `.q-row-date` |
-| 文章正文 | 18px | 400 | 1.6 | primary | `.q-prose` |
-| 文章小标题 | 20px | 700 | 1.6 | primary | `.q-prose h3` |
+| 文章正文 | 18px | 400 | 1.75 | primary | `.q-prose` |
+| 文章小标题 | 20px | 700 | 1.75 | primary | `.q-prose h3` |
 | 分组标签 | 16px | 400 | 1.6 | label | `.q-section-label` |
 | 元信息（日期） | 16px | 400 | 1.6 | tertiary | `.q-meta` |
 | 面包屑 | 16px | 500 | 24px | primary | `.q-topbar a` |
@@ -78,7 +115,7 @@
 
 - **分组标签比它下面的内容更小、更淡。** 标签是 16px 的浅灰，内容是 20px 的深色。标签不加粗、不用大写。
 - **字重只有三档在正文区出现**：400（附注）、500（主文字）、700（标题）。600 只在导航里用。
-- **行高几乎全是 1.6**，只有页面标题（1.2）和引言段落（固定 32px）例外。
+- **单行文字的行高都是 1.6**（列表行、标签、日期）。会换行的文字另有取值：正文 1.75、引言 1.5、标题 1.3。表里是中文的值，英文的值见上面的「中文排版规则」。
 - **等宽日期是 19px 而不是 20px**：等宽字体看起来偏大，小 1px 才和旁边的 Inter 对齐。
 
 ## 间距与布局
@@ -89,7 +126,8 @@
 | --- | --- |
 | 6px | 桌面端列表行与行之间 |
 | 8px | 列表行内，主文字和附注之间 |
-| 16px | 页面左右留白；分组标签到列表；段落之间；手机端列表行距 |
+| 16px | 页面左右留白；分组标签到列表；手机端列表行距 |
+| 20px | 段落之间（英文 16px） |
 | 32px | 头像下方；文章页区块之间；手机端带图标列表的行距 |
 | 64px | 区块之间；页面上下留白 |
 | 128px | 个人主页这类页面的上下留白（≥640px） |
@@ -147,10 +185,10 @@
 
 ```html
 <header class="q-topbar">
-  <button class="q-icon-button" aria-label="Menu">…</button>
-  <a href="/">Your Name</a>
+  <button class="q-icon-button" aria-label="菜单">…</button>
+  <a href="/">你的名字</a>
   <span class="q-topbar-sep">/</span>
-  <a href="/about">About</a>
+  <a href="/about">关于</a>
 </header>
 ```
 
@@ -161,12 +199,12 @@
 ```html
 <nav class="q-nav" hidden>
   <div class="q-nav-group">
-    <a class="q-nav-link" href="/">Home</a>
-    <a class="q-nav-link" href="/about" aria-current="page">About</a>
+    <a class="q-nav-link" href="/">首页</a>
+    <a class="q-nav-link" href="/about" aria-current="page">关于</a>
   </div>
   <div class="q-nav-group">
-    <span class="q-nav-label">Projects</span>
-    <a class="q-nav-link" href="/notes">Notes</a>
+    <span class="q-nav-label">项目</span>
+    <a class="q-nav-link" href="/notes">笔记</a>
   </div>
 </nav>
 ```
@@ -188,7 +226,7 @@
 
 ```html
 <section class="q-section">
-  <h2 class="q-section-label">Work</h2>
+  <h2 class="q-section-label">工作经历</h2>
   <ul class="q-list">…</ul>
 </section>
 ```
@@ -215,7 +253,7 @@
     <img class="q-row-icon" src="logo.png" alt="" />
     <span class="q-row-main">
       <span class="q-row-title">Fieldnote</span>
-      <span class="q-row-meta">Product Designer</span>
+      <span class="q-row-meta">产品设计师</span>
     </span>
     <span class="q-row-date">2022–25</span>
   </a>
@@ -224,16 +262,16 @@
 <!-- 名称 + 一句话描述 -->
 <li>
   <a class="q-row" href="#">
-    <span class="q-row-title">Toolbox</span>
-    <span class="q-row-meta">My favorite apps and tools</span>
+    <span class="q-row-title">工具箱</span>
+    <span class="q-row-meta">我常用的软件和工具</span>
   </a>
 </li>
 
 <!-- 长标题 + 日期 -->
 <li>
   <a class="q-row" href="#">
-    <span class="q-row-title q-row-title--fill">Designing with fewer moving parts</span>
-    <span class="q-row-date">May '26</span>
+    <span class="q-row-title q-row-title--fill">少一些零件的设计</span>
+    <span class="q-row-date">2026.05</span>
   </a>
 </li>
 ```
@@ -242,21 +280,21 @@
 
 ### 引言 `.q-lead` 与链接 `.q-link`
 
-个人主页开头的自我介绍：24px、中等字重、次级灰。段落之间 16px。
+个人主页开头的自我介绍：24px、中等字重、次级灰。段落之间 20px。
 
 链接不变色，只用一条 2px 的浅灰下划线表明可点，悬停时文字变成主色。
 
 ```html
 <p class="q-lead">
-  I'm currently building tools at <a class="q-link" href="#">Fieldnote</a>.
+  目前在 <a class="q-link" href="#">Fieldnote</a> 做面向小团队的工具。
 </p>
 ```
 
 ### 文章正文 `.q-prose`
 
-把 Markdown 渲染出来的 HTML 直接放进去即可。块与块之间 16px。
+把 Markdown 渲染出来的 HTML 直接放进去即可。块与块之间 20px。
 
-- `p`：18px，行高 1.6
+- `p`：18px，行高 1.75
 - `h3`：20px 粗体，上方多留 20px
 - `ul` / `ol`：项目之间 8px
 - `blockquote`：左侧 3px 细线，文字变成三级灰
@@ -313,14 +351,15 @@
 - **键盘焦点环**（`:focus-visible`）：原站点没有统一的焦点样式，这里为了可访问性补了一个。
 - **`.q-prose h2` 和 `.q-prose pre`**：原站点的文章里没有出现，这里按相邻元素的规律外推。
 - **`data-theme` 手动切换深浅色**：原站点只跟随系统设置。
-- **中文后备字体**：在字体栈里加了 `PingFang SC`。
+- **中文适配**：原站点是纯英文的。中文字体（苹方、思源黑体）、放宽的行高和段距、去掉标题负字距、加大下划线偏移、`<em>` 不倾斜，都是为中文补的，详见「中文排版规则」。英文的取值保留在 `:lang(en)` 里，和原站点一致。
 
 ## 给 AI 的使用说明
 
 如果你是被要求"按这套设计系统做页面"的 AI，请遵守：
 
-1. 引入 `tokens.css` 和 `components.css`（或 Tailwind 项目里用 `tailwind-theme.css`），不要重新定义颜色、字号、间距。
+1. 引入 `tokens.css` 和 `components.css`（或 Tailwind 项目里用 `tailwind-theme.css`），不要重新定义颜色、字号、间距。同时按 README 的写法加载 Inter 和 Noto Sans SC 两个字体，并在 `<html>` 上写 `lang="zh-CN"`。
 2. 页面结构固定为：`.q-topbar` → `.q-page`（内含若干 `.q-section`）。
 3. 所有成组的内容优先用 `.q-list` + `.q-row`。
 4. 需要新组件时，只使用 `tokens.css` 里已有的变量，并遵守上面"该做与不该做"的每一条。
 5. 不要添加规范之外的装饰：渐变、阴影、彩色图标、动画。
+6. 文案默认用中文，遵守「中文排版规则」里的书写约定：中英文之间加空格，日期用数字格式，分组标签两到四个字。
