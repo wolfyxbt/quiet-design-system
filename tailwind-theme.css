@@ -1,0 +1,100 @@
+/*
+ * Quiet Design System — Tailwind CSS v4 主题
+ *
+ * 用法（在你项目的全局 CSS 里）：
+ *
+ *   @import "tailwindcss";
+ *   @import "./quiet-design-system/tokens.css";
+ *   @import "./quiet-design-system/tailwind-theme.css";
+ *
+ * 之后就能直接写：
+ *   text-primary / text-secondary / text-tertiary / text-quaternary / text-brand
+ *   bg-page / bg-secondary / bg-tertiary / bg-quaternary / bg-elevated / bg-brand
+ *   border-primary / border-secondary
+ *   max-w-measure / max-w-measure-narrow / max-w-measure-wide
+ *   link-body / hatch / shadow-pill
+ *
+ * 颜色随 tokens.css 自动切换深浅色，绝大多数地方不需要写 dark: 前缀。
+ */
+
+/*
+ * 字体不用在这里声明：tokens.css 里的 --font-sans / --font-mono
+ * 和 Tailwind 的主题变量同名，会直接覆盖默认值（所以 tokens.css 要放在 tailwindcss 之后导入）。
+ */
+
+@theme inline {
+  --text-color-primary: var(--text-primary);
+  --text-color-secondary: var(--text-secondary);
+  --text-color-tertiary: var(--text-tertiary);
+  --text-color-quaternary: var(--text-quaternary);
+  --text-color-label: var(--text-label);
+  --text-color-brand: var(--brand);
+
+  --background-color-page: var(--bg-page);
+  --background-color-secondary: var(--bg-secondary);
+  --background-color-tertiary: var(--bg-tertiary);
+  --background-color-quaternary: var(--bg-quaternary);
+  --background-color-elevated: var(--bg-elevated);
+  --background-color-hover: var(--bg-hover);
+  --background-color-brand: var(--brand);
+
+  --border-color-primary: var(--border-primary);
+  --border-color-secondary: var(--border-secondary);
+
+  --container-measure-narrow: 576px;
+  --container-measure: 672px;
+  --container-measure-wide: 768px;
+}
+
+/* 小胶囊按钮的阴影（深浅色各一套，定义在 tokens.css） */
+@utility shadow-pill {
+  box-shadow: var(--shadow-pill);
+}
+
+@layer base {
+  html {
+    background: var(--bg-page);
+  }
+
+  body {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-synthesis-weight: none;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar) transparent;
+  }
+
+  ::selection {
+    color: var(--selection-text);
+    background: var(--selection-bg);
+  }
+}
+
+/* 正文链接 */
+@utility link-body {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text-quaternary);
+  text-underline-offset: 2px;
+  word-break: break-word;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+/* 斜纹分隔带，配合 h-2 使用 */
+@utility hatch {
+  background-image: linear-gradient(
+    -45deg,
+    transparent 48%,
+    var(--hatch) 48%,
+    var(--hatch) 52%,
+    transparent 52%
+  );
+  background-size: 4px 4px;
+}

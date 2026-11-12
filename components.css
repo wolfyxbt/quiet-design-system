@@ -1,0 +1,635 @@
+/*
+ * Quiet Design System — base + components
+ * 依赖 tokens.css。所有类名以 q- 开头，避免和项目里已有的样式冲突。
+ */
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
+}
+
+html {
+  background: var(--bg-page);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  font-synthesis-weight: none; /* 不让浏览器伪造粗体 */
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+::selection {
+  color: var(--selection-text);
+  background: var(--selection-bg);
+}
+
+/* 键盘焦点环（原站点没有统一的焦点样式，这是为可访问性补充的） */
+:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* =========================================================
+   Top bar — 顶部面包屑栏
+   ========================================================= */
+
+.q-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: var(--topbar-height);
+  padding: 0 var(--space-3);
+  background: var(--bg-page);
+}
+
+.q-topbar a {
+  padding: var(--space-2);
+  font-weight: var(--weight-medium);
+  line-height: 24px;
+  color: var(--text-primary);
+}
+
+.q-topbar-sep {
+  font-weight: var(--weight-medium);
+  color: var(--text-quaternary);
+  opacity: var(--separator-opacity);
+  user-select: none;
+}
+
+/* 圆形图标按钮：平时完全透明，悬停才出现底色 */
+.q-icon-button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-size);
+  height: var(--control-size);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.q-icon-button:hover {
+  background: var(--bg-hover);
+}
+
+/* =========================================================
+   Nav overlay — 全屏导航
+   ========================================================= */
+
+.q-nav {
+  position: fixed;
+  inset: 0;
+  top: 44px;
+  z-index: 20;
+  overflow-y: auto;
+  padding: var(--space-6);
+  background: var(--bg-page);
+}
+
+.q-nav[hidden] {
+  display: none;
+}
+
+.q-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.q-nav-group + .q-nav-group {
+  margin-top: var(--space-8);
+}
+
+.q-nav-label {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-quaternary);
+}
+
+.q-nav-link {
+  padding: var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: 28px;
+  color: var(--text-tertiary);
+}
+
+.q-nav-link:hover,
+.q-nav-link[aria-current="page"] {
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   Page — 单栏内容容器
+   ========================================================= */
+
+.q-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-4);
+}
+
+.q-page--narrow {
+  max-width: var(--measure-narrow);
+}
+
+/* 文章页：更宽、区块更紧凑 */
+.q-page--article {
+  max-width: var(--measure-wide);
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-4);
+}
+
+@media (min-width: 640px) {
+  /* 个人主页这类"封面"页面：上下留白翻倍 */
+  .q-page--airy {
+    padding-top: var(--space-32);
+    padding-bottom: var(--space-32);
+  }
+}
+
+@media (min-width: 768px) {
+  .q-page--article {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .q-page--article {
+    padding: var(--space-16) var(--space-8);
+  }
+}
+
+/* =========================================================
+   Section — 分组：灰色小标签 + 内容
+   ========================================================= */
+
+.q-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.q-section-label {
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  color: var(--text-label);
+  user-select: none;
+}
+
+/* =========================================================
+   Typography
+   ========================================================= */
+
+/* 页面标题 */
+.q-title {
+  margin: 0;
+  font-size: var(--text-title);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .q-title {
+    font-size: var(--text-title-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .q-title {
+    font-size: var(--text-title-lg);
+  }
+}
+
+/* 引言段落：大号、中等字重、次级灰 */
+.q-lead {
+  margin: 0;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-lead);
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+/* 日期等元信息 */
+.q-meta {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+/* 正文链接：颜色继承，只靠 2px 灰色下划线表明可点 */
+.q-link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text-quaternary);
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+
+.q-link:hover {
+  color: var(--text-primary);
+}
+
+/* 头像 */
+.q-avatar {
+  display: block;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  margin-bottom: var(--space-8);
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  user-select: none;
+}
+
+/* =========================================================
+   List — 这套设计的核心组件
+   每行：[图标] 主文字 灰色附注 ………… 等宽日期
+   ========================================================= */
+
+.q-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.q-list > li {
+  display: flex;
+}
+
+/* 带图标的列表在手机上每行占三四行高，行距要拉开才分得清 */
+.q-list:has(.q-row-icon) {
+  gap: var(--space-8);
+}
+
+/* 可选：把主文字和附注包起来，手机上它们并排，桌面端这层包装自动消失 */
+.q-row-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.q-row {
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  min-width: 0;
+  font-size: var(--text-xl);
+  line-height: var(--leading-body);
+}
+
+.q-row-icon {
+  flex: none;
+  width: var(--row-icon-mobile);
+  height: var(--row-icon-mobile);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-sm);
+  user-select: none;
+}
+
+.q-row-title {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+  text-underline-offset: 1px;
+}
+
+.q-row-meta {
+  color: var(--text-quaternary);
+}
+
+.q-row-date {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  color: var(--text-quaternary);
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* 外链的小箭头等行内图标 */
+.q-row-glyph {
+  flex: none;
+  color: var(--text-quaternary);
+}
+
+@media (hover: hover) {
+  /* 悬停只给主文字加下划线，不变色、不加底色 */
+  .q-row:hover .q-row-title {
+    text-decoration-line: underline;
+  }
+}
+
+@media (min-width: 640px) {
+  .q-list,
+  .q-list:has(.q-row-icon) {
+    gap: var(--space-1-5);
+  }
+
+  .q-row-main {
+    display: contents;
+  }
+
+  .q-row {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .q-row-icon {
+    width: var(--row-icon);
+    height: var(--row-icon);
+    margin-bottom: 0;
+    margin-right: var(--space-1);
+  }
+
+  .q-row-title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  /* 让附注占满剩余宽度，把日期推到最右 */
+  .q-row-meta--fill,
+  .q-row-title--fill {
+    flex: 1;
+  }
+
+  .q-row-date {
+    margin-left: auto;
+    padding-left: var(--space-3);
+  }
+}
+
+/* =========================================================
+   Icon links — 一排社交图标
+   ========================================================= */
+
+.q-icon-links {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.q-icon-link {
+  display: inline-flex;
+  padding: var(--space-2);
+  color: var(--text-quaternary);
+  transition: color var(--duration) var(--ease);
+}
+
+.q-icon-links > li:first-child .q-icon-link {
+  margin-left: calc(var(--space-2) * -1); /* 图标视觉上和文字左对齐 */
+}
+
+.q-icon-link:hover {
+  color: var(--text-primary);
+}
+
+.q-icon-link svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* =========================================================
+   Prose — 文章正文
+   ========================================================= */
+
+.q-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+}
+
+.q-prose > * {
+  margin: 0;
+}
+
+.q-prose a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text-quaternary);
+  text-underline-offset: 2px;
+  word-break: break-word;
+}
+
+.q-prose h2 {
+  /* 原站点文章里没出现 h2，这里按 h3 的规律外推 */
+  margin-top: var(--space-6);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: 1.3;
+}
+
+.q-prose h3 {
+  margin-top: var(--space-5);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.q-prose ul,
+.q-prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: 1.25em;
+}
+
+.q-prose ul {
+  list-style: disc;
+}
+
+.q-prose ol {
+  list-style: decimal;
+}
+
+.q-prose blockquote {
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--border-primary);
+  color: var(--text-tertiary);
+}
+
+.q-prose hr {
+  width: 100%;
+  margin: var(--space-6) 0;
+  border: 0;
+  border-top: 1px solid var(--border-primary);
+}
+
+.q-prose code {
+  padding: var(--space-0-5) var(--space-1);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+}
+
+.q-prose pre {
+  /* 原站点用截图展示代码，这里按行内代码的规律外推 */
+  overflow-x: auto;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--bg-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.q-prose pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.q-prose img,
+.q-prose video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* =========================================================
+   Pill — 唯一带"实体感"的小控件（点赞、计数、筛选）
+   ========================================================= */
+
+.q-pill {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  height: var(--pill-height);
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-pill);
+  color: var(--text-quaternary);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration) var(--ease);
+}
+
+/* 带图标时左侧收紧一点，图标和文字在视觉上才居中 */
+.q-pill:has(svg) {
+  padding: 0 10px 0 8px;
+}
+
+.q-pill:hover {
+  background: var(--bg-secondary);
+}
+
+.q-pill:disabled {
+  pointer-events: none;
+}
+
+/* =========================================================
+   Dividers — 两种分隔方式，都很克制
+   ========================================================= */
+
+/* 斜纹带：横跨整个视口，分开"正文"和"延伸阅读" */
+.q-hatch {
+  height: 8px;
+  background-image: linear-gradient(
+    -45deg,
+    transparent 48%,
+    var(--hatch) 48%,
+    var(--hatch) 52%,
+    transparent 52%
+  );
+  background-size: 4px 4px;
+}
+
+/* 强调短线：全站唯一用到品牌色的地方，放在分组标签上方 */
+.q-tick {
+  width: 20px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--brand);
+}
+
+/* =========================================================
+   Utilities
+   ========================================================= */
+
+.q-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.q-stack--loose {
+  gap: var(--space-6);
+}
+
+.q-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiet Design System — Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+  </head>
+  <body>
+    <!-- Top bar -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+      <a href="#">Your Name</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="#">About</a>
+    </header>
+
+    <!-- Nav overlay -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="#">Home</a>
+        <a class="q-nav-link" href="#" aria-current="page">About</a>
+        <a class="q-nav-link" href="#">Writing</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">Projects</span>
+        <a class="q-nav-link" href="#">Reading list</a>
+        <a class="q-nav-link" href="#">Toolbox</a>
+        <a class="q-nav-link" href="#">Notes</a>
+      </div>
+    </nav>
+
+    <!-- Profile page -->
+    <main class="q-page q-page--airy">
+      <div class="q-stack">
+        <h1 class="q-sr-only">About</h1>
+        <svg class="q-avatar" viewBox="0 0 60 60" aria-hidden="true">
+          <defs>
+            <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d4d4d4" />
+              <stop offset="1" stop-color="#737373" />
+            </linearGradient>
+          </defs>
+          <circle cx="30" cy="30" r="30" fill="url(#av)" />
+        </svg>
+        <p class="q-lead">I'm a product designer living by the sea.</p>
+        <p class="q-lead">
+          I'm currently building tools for small teams at <a class="q-link" href="#">Fieldnote</a>.
+          Before that, I co-founded <a class="q-link" href="#">Tidepool</a>, a calm place for
+          long-form team writing.
+        </p>
+        <p class="q-lead">
+          Along the way I've hosted a <a class="q-link" href="#">podcast</a> about craft and kept a
+          public <a class="q-link" href="#">notebook</a> of things I learn.
+        </p>
+      </div>
+
+      <ul class="q-icon-links">
+        <li>
+          <a class="q-icon-link" href="#" aria-label="Email">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="7" width="20" height="14" rx="3" />
+              <path d="m5 9 9 7 9-7" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="q-icon-link" href="#" aria-label="Feed">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 13a9 9 0 0 1 9 9M6 6a16 16 0 0 1 16 16" />
+              <circle cx="7" cy="21" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="q-icon-link" href="#" aria-label="Code">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m10 9-5 5 5 5M18 9l5 5-5 5" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <!-- List: icon + title + meta + date -->
+      <section class="q-section">
+        <h2 class="q-section-label">Work</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="#">
+              <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="currentColor" /></svg>
+              <span class="q-row-main">
+                <span class="q-row-title">Fieldnote</span>
+                <span class="q-row-meta">Product Designer</span>
+              </span>
+              <span class="q-row-date">Current</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#fc532a" /></svg>
+              <span class="q-row-main">
+                <span class="q-row-title">Tidepool</span>
+                <span class="q-row-meta">Co-founder</span>
+              </span>
+              <span class="q-row-date">2022–25</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#737373" /></svg>
+              <span class="q-row-main">
+                <span class="q-row-title">Northwind</span>
+                <span class="q-row-meta">Product Designer</span>
+              </span>
+              <span class="q-row-date">2018–22</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- List: title + description -->
+      <section class="q-section">
+        <h2 class="q-section-label">Projects</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title">Reading list</span>
+              <span class="q-row-meta">Books worth a second pass</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title">Toolbox</span>
+              <span class="q-row-meta">My favorite apps and tools</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title">Notes</span>
+              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span class="q-row-meta">A public notebook</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- List: long title + date -->
+      <section class="q-section">
+        <h2 class="q-section-label">Speaking</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title q-row-title--fill">Designing with fewer moving parts</span>
+              <span class="q-row-date">May '26</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title q-row-title--fill">What a two-person company taught me about scope</span>
+              <span class="q-row-date">Nov '25</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="#">
+              <span class="q-row-title q-row-title--fill">Boring routines</span>
+              <span class="q-row-date">Aug '24</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <div class="q-hatch"></div>
+
+    <!-- Article page -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">Jan 19, 2026</p>
+        <h1 class="q-title">Keeping a small site small</h1>
+        <div>
+          <button class="q-pill" type="button">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+              <path d="M6 10.5S1.5 7.9 1.5 4.7A2.4 2.4 0 0 1 6 3.6a2.4 2.4 0 0 1 4.5 1.1c0 3.2-4.5 5.8-4.5 5.8Z" />
+            </svg>
+            128
+          </button>
+        </div>
+      </div>
+
+      <div class="q-prose">
+        <p>
+          Every page on this site is one column of text. There are no cards, no borders, and no
+          background fills. Hierarchy comes from four shades of gray and three font weights.
+        </p>
+        <p>
+          The whole thing is driven by a single file, <code>tokens.css</code>, and a handful of
+          classes. If you want the details, the <a href="#">source is public</a>.
+        </p>
+        <h3>What I left out</h3>
+        <ul>
+          <li>Accent colors, except for one four-pixel tick.</li>
+          <li>Hover backgrounds. Rows underline their title and nothing else.</li>
+          <li>Anything that needs a shadow to be understood.</li>
+        </ul>
+        <blockquote>
+          A layout this plain only works if the type is set carefully, so that is where the effort
+          goes.
+        </blockquote>
+        <hr />
+        <p>That's the entire system. It fits in your head, which is the point.</p>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">Read next</h2>
+        <ul class="q-list">
+          <li><a class="q-row" href="#"><span class="q-row-title">Four grays are enough</span></a></li>
+          <li><a class="q-row" href="#"><span class="q-row-title">Notes on monospace dates</span></a></li>
+          <li><a class="q-row" href="#"><span class="q-row-title">One column, on purpose</span></a></li>
+        </ul>
+      </section>
+
+      <!-- Demo only: not part of the design system -->
+      <div>
+        <button class="q-pill" type="button" id="theme">Toggle theme</button>
+      </div>
+    </div>
+
+    <script>
+      const menu = document.getElementById("menu");
+      const nav = document.getElementById("nav");
+      menu.addEventListener("click", () => {
+        nav.hidden = !nav.hidden;
+        menu.setAttribute("aria-expanded", String(!nav.hidden));
+      });
+
+      document.getElementById("theme").addEventListener("click", () => {
+        const root = document.documentElement;
+        const dark =
+          root.dataset.theme === "dark" ||
+          (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+        root.dataset.theme = dark ? "light" : "dark";
+      });
+    </script>
+  </body>
+</html>

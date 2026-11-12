@@ -1,0 +1,186 @@
+/*
+ * Quiet Design System — tokens
+ * 一套安静的、以排版为主的单栏设计语言。
+ * 所有组件只引用下面的语义变量，不直接写色值。
+ *
+ * 深色模式：默认跟随系统；在 <html> 上写 data-theme="light" 或 "dark" 可强制指定。
+ */
+
+:root {
+  /* ---------- 中性色阶（唯一的色板） ---------- */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a1a1a1;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-850: #1d1d1d;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+
+  /* ---------- 强调色：全站只在极小面积出现 ---------- */
+  --brand: #fc532a;
+
+  /* ---------- 文字：四级灰度承担全部层级 ---------- */
+  --text-primary: var(--neutral-900); /* 标题、列表主文字、正文 */
+  --text-secondary: var(--neutral-600); /* 大号引言段落 */
+  --text-tertiary: var(--neutral-500); /* 日期、引用、次要说明 */
+  --text-quaternary: var(--neutral-400); /* 分组标签、列表附注、图标 */
+  --text-label: var(--text-quaternary); /* 分组标签（深色下提一级） */
+
+  /* ---------- 背景 ---------- */
+  --bg-page: #ffffff; /* 页面底色 */
+  --bg-secondary: var(--neutral-50); /* 悬停底色 */
+  --bg-tertiary: var(--neutral-100); /* 行内代码、代码块 */
+  --bg-quaternary: var(--neutral-200);
+  --bg-elevated: #ffffff; /* 浮起的小控件 */
+  --bg-hover: rgba(0, 0, 0, 0.08); /* 透明按钮的悬停层 */
+
+  /* ---------- 边框 ---------- */
+  --border-primary: rgba(0, 0, 0, 0.12);
+  --border-secondary: rgba(0, 0, 0, 0.09);
+
+  /* ---------- 细节 ---------- */
+  --selection-text: rgb(0, 102, 219);
+  --selection-bg: rgba(0, 154, 250, 0.1);
+  --scrollbar: var(--neutral-300);
+  --hatch: rgba(0, 0, 0, 0.16); /* 斜纹分隔带的线条色 */
+  --separator-opacity: 0.5; /* 面包屑斜杠 */
+  --shadow-pill: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+  /* ---------- 字体 ---------- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", "PingFang SC", "Noto Sans", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* ---------- 字号 ---------- */
+  --text-sm: 14px; /* 小按钮、导航分组标签 */
+  --text-base: 16px; /* 分组标签、日期、面包屑、行内代码 */
+  --text-lg: 18px; /* 文章正文 */
+  --text-mono: 19px; /* 列表右侧的等宽日期（比 20px 小 1px，视觉上对齐） */
+  --text-xl: 20px; /* 列表行、导航链接、文章小标题 */
+  --text-2xl: 24px; /* 引言段落 */
+  --text-title: 30px; /* 页面标题：30 → 36 → 40 */
+  --text-title-md: 36px;
+  --text-title-lg: 40px;
+
+  /* ---------- 行高与字距 ---------- */
+  --leading-body: 1.6; /* 几乎所有文字 */
+  --leading-title: 1.2;
+  --leading-lead: 32px; /* 24px 引言段落的固定行高 */
+  --tracking-title: -0.64px;
+
+  /* ---------- 字重 ---------- */
+  --weight-regular: 400; /* 附注、标签、正文 */
+  --weight-medium: 500; /* 列表主文字、引言、面包屑 */
+  --weight-semibold: 600; /* 导航链接 */
+  --weight-bold: 700; /* 页面标题、文章小标题 */
+
+  /* ---------- 间距（4px 基准） ---------- */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px; /* 桌面端列表行距 */
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px; /* 页面左右留白、标签到列表、段落间距 */
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px; /* 区块之间、页面上下留白 */
+  --space-20: 80px;
+  --space-32: 128px; /* 个人主页类页面的上下留白（≥640px） */
+
+  /* ---------- 内容宽度 ---------- */
+  --measure-narrow: 576px; /* 索引 / 列表页 */
+  --measure: 672px; /* 默认：个人主页、通用页面 */
+  --measure-wide: 768px; /* 文章 */
+
+  /* ---------- 圆角 ---------- */
+  --radius-sm: 4px; /* 行内代码 */
+  --radius-lg: 8px; /* 图片、代码块 */
+  --radius-full: 9999px; /* 按钮、头像、强调短线 */
+
+  /* ---------- 尺寸 ---------- */
+  --topbar-height: 56px;
+  --control-size: 36px; /* 圆形图标按钮 */
+  --pill-height: 28px;
+  --avatar-size: 60px;
+  --row-icon: 20px;
+  --row-icon-mobile: 28px;
+
+  /* ---------- 动效 ---------- */
+  --duration: 150ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* ---------- 断点（CSS 变量不能用于 @media，仅作记录） ---------- */
+  /* sm: 640px · md: 768px · lg: 1024px */
+
+  color-scheme: light;
+}
+
+/* 深色：跟随系统，除非显式指定 light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --text-primary: rgba(255, 255, 255, 0.9);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-tertiary: rgba(255, 255, 255, 0.5);
+    --text-quaternary: rgba(255, 255, 255, 0.32);
+    --text-label: var(--text-tertiary);
+
+    --bg-page: #000000;
+    --bg-secondary: var(--neutral-900);
+    --bg-tertiary: var(--neutral-800);
+    --bg-quaternary: rgba(255, 255, 255, 0.03);
+    --bg-elevated: var(--neutral-900);
+    --bg-hover: rgba(255, 255, 255, 0.12);
+
+    --border-primary: rgba(255, 255, 255, 0.12);
+    --border-secondary: rgba(255, 255, 255, 0.09);
+
+    --selection-text: rgb(255, 107, 1);
+    --selection-bg: rgba(240, 104, 0, 0.1);
+    --scrollbar: var(--neutral-600);
+    --hatch: rgba(255, 255, 255, 0.16);
+    --separator-opacity: 0.7;
+    --shadow-pill: inset 0 0 0 0.5px rgba(255, 255, 255, 0.04),
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.04), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    color-scheme: dark;
+  }
+}
+
+/* 深色：显式指定 */
+:root[data-theme="dark"] {
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --text-quaternary: rgba(255, 255, 255, 0.32);
+  --text-label: var(--text-tertiary);
+
+  --bg-page: #000000;
+  --bg-secondary: var(--neutral-900);
+  --bg-tertiary: var(--neutral-800);
+  --bg-quaternary: rgba(255, 255, 255, 0.03);
+  --bg-elevated: var(--neutral-900);
+  --bg-hover: rgba(255, 255, 255, 0.12);
+
+  --border-primary: rgba(255, 255, 255, 0.12);
+  --border-secondary: rgba(255, 255, 255, 0.09);
+
+  --selection-text: rgb(255, 107, 1);
+  --selection-bg: rgba(240, 104, 0, 0.1);
+  --scrollbar: var(--neutral-600);
+  --hatch: rgba(255, 255, 255, 0.16);
+  --separator-opacity: 0.7;
+  --shadow-pill: inset 0 0 0 0.5px rgba(255, 255, 255, 0.04),
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.04), 0 1px 3px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
+}
