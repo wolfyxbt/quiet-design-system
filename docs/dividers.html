@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>分隔与页脚 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：分隔与页脚。斜纹带、短线和页脚。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">分隔与页脚</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>区块之间靠留白分开。只有下面几种情况会用到线。</p>
+          <h2>斜纹带 <code>.q-hatch</code></h2>
+          <p>8px 高的细斜纹，横跨整个视口。只用来分开文章正文和后面的「延伸阅读」，一页最多一条。这一页的最下面就有一条。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-hatch"></div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-hatch&quot;&gt;&lt;/div&gt;</code></pre>
+          <h2>强调短线 <code>.q-tick</code></h2>
+          <p>20×4px 的品牌色短线，放在「延伸阅读」的标签上方。这是品牌色唯一出现的地方。紧跟在它后面的标签会自动深一级。</p>
+        </div>
+
+        <div class="q-demo">
+          <section class="q-section">
+            <div class="q-tick"></div>
+            <h2 class="q-section-label">延伸阅读</h2>
+            <ul class="q-list">
+              <li>
+                <a class="q-row" href="../writing/four-grays.html"><span class="q-row-title">四级灰度就够了</span></a>
+              </li>
+              <li>
+                <a class="q-row" href="../writing/one-column.html"><span class="q-row-title">为什么只用一栏</span></a>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;section class=&quot;q-section&quot;&gt;
+  &lt;div class=&quot;q-tick&quot;&gt;&lt;/div&gt;
+  &lt;h2 class=&quot;q-section-label&quot;&gt;延伸阅读&lt;/h2&gt;
+  &lt;ul class=&quot;q-list&quot;&gt;
+    &lt;li&gt;
+      &lt;a class=&quot;q-row&quot; href=&quot;../writing/four-grays.html&quot;&gt;&lt;span class=&quot;q-row-title&quot;&gt;四级灰度就够了&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a class=&quot;q-row&quot; href=&quot;../writing/one-column.html&quot;&gt;&lt;span class=&quot;q-row-title&quot;&gt;为什么只用一栏&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+          <h2>横线</h2>
+          <p>正文里的 <code>&lt;hr&gt;</code> 是一条 1px 的细线，上下各留 24px，用来分开文章的两个部分。它只在正文里用。</p>
+          <h2>示例框 <code>.q-demo</code></h2>
+          <p>写文档时用：上下各一条细线，中间放真实的组件，后面跟一段代码。这个网站的文档页里到处都是它。</p>
+          <h2>页脚 <code>.q-footer</code></h2>
+          <p>页面最后一行 16px 的灰色小字：版权和几个链接。不分栏。</p>
+        </div>
+
+        <div class="q-demo">
+          <p class="q-footer">
+            <span>© 2026 潮池</span>
+            <a href="../examples/product.html">产品</a>
+            <a href="./">文档</a>
+            <a href="../writing/">文章</a>
+          </p>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;p class=&quot;q-footer&quot;&gt;
+  &lt;span&gt;© 2026 潮池&lt;/span&gt;
+  &lt;a href=&quot;../examples/product.html&quot;&gt;产品&lt;/a&gt;
+  &lt;a href=&quot;./&quot;&gt;文档&lt;/a&gt;
+  &lt;a href=&quot;../writing/&quot;&gt;文章&lt;/a&gt;
+&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="start.html">
+              <span class="q-row-title">开始使用</span>
+              <span class="q-row-meta">引入文件、字体和深色模式</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="principles.html">
+              <span class="q-row-title">设计原则</span>
+              <span class="q-row-meta">六条原则和适用范围</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

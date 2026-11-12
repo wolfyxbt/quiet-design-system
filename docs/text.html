@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>引言与正文 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：引言与正文。引言、链接和长文。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">引言与正文</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>页面上大段的文字只有两种：介绍页开头的引言，和文章页里的正文。</p>
+          <h2>引言 <code>.q-lead</code></h2>
+          <p>24px、中等字重、二级灰。用在介绍页的开头，通常两三段，每段一两句话。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-stack">
+            <p class="q-lead">潮池是给小团队用的写作工具。</p>
+            <p class="q-lead">
+              没有消息提醒，没有在线状态，只有文档和评论。用法见<a class="q-link" href="./">文档</a>。
+            </p>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-stack&quot;&gt;
+  &lt;p class=&quot;q-lead&quot;&gt;潮池是给小团队用的写作工具。&lt;/p&gt;
+  &lt;p class=&quot;q-lead&quot;&gt;
+    没有消息提醒，没有在线状态，只有文档和评论。用法见&lt;a class=&quot;q-link&quot; href=&quot;./&quot;&gt;文档&lt;/a&gt;。
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          <h2>链接 <code>.q-link</code></h2>
+          <p>链接不变色，只用一条 2px 的浅灰下划线表明可点，悬停时文字变成主色。正文（<code>.q-prose</code>）里的链接自动是这个样子，不用加类。</p>
+          <h2>正文 <code>.q-prose</code></h2>
+          <p>把 Markdown 渲染出来的 HTML 直接放进去就行。块与块之间 20px。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-prose">
+            <p>正文是 18px，行高 1.75。<a href="./">链接</a>有一条浅灰的下划线，<code>行内代码</code>有一层浅灰的底，<em>强调</em>用中等字重。</p>
+            <h3>小标题</h3>
+            <p>小标题是 20px 的粗体，上方多留 20px。</p>
+            <ul>
+              <li>列表的每一项相距 8px。</li>
+              <li>有序列表用数字。</li>
+            </ul>
+            <blockquote>引用块左边有一条 3px 的细线，文字是三级灰。</blockquote>
+            <hr />
+            <p>横线上下各留 24px，用来分开文章的两个部分。</p>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-prose&quot;&gt;
+  &lt;p&gt;正文是 18px，行高 1.75。&lt;a href=&quot;./&quot;&gt;链接&lt;/a&gt;有一条浅灰的下划线，&lt;code&gt;行内代码&lt;/code&gt;有一层浅灰的底，&lt;em&gt;强调&lt;/em&gt;用中等字重。&lt;/p&gt;
+  &lt;h3&gt;小标题&lt;/h3&gt;
+  &lt;p&gt;小标题是 20px 的粗体，上方多留 20px。&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;列表的每一项相距 8px。&lt;/li&gt;
+    &lt;li&gt;有序列表用数字。&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;blockquote&gt;引用块左边有一条 3px 的细线，文字是三级灰。&lt;/blockquote&gt;
+  &lt;hr /&gt;
+  &lt;p&gt;横线上下各留 24px，用来分开文章的两个部分。&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          <p>上面为了展示把所有样式放在了一起。真实的文章里大部分是段落，偶尔有小标题和一条横线。列表和引用只在内容本身是列表、是引用的时候用。</p>
+          <h3>代码块和图片</h3>
+          <p>代码块（<code>&lt;pre&gt;</code>）是 14px 等宽、浅灰底、8px 圆角，这一页里展示代码用的就是它。图片撑满栏宽，8px 圆角。</p>
+          <h2>文章页的头部</h2>
+          <p>灰色的日期或类别，标题，一个可选的小胶囊，彼此相距 24px。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-stack q-stack--loose">
+            <p class="q-meta">2026 年 1 月 19 日</p>
+            <div class="q-title">让小网站一直小下去</div>
+            <div>
+              <button class="q-pill" type="button">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M6 10.5S1.5 7.9 1.5 4.7A2.4 2.4 0 0 1 6 3.6a2.4 2.4 0 0 1 4.5 1.1c0 3.2-4.5 5.8-4.5 5.8Z" /></svg>
+                128
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-stack q-stack--loose&quot;&gt;
+  &lt;p class=&quot;q-meta&quot;&gt;2026 年 1 月 19 日&lt;/p&gt;
+  &lt;div class=&quot;q-title&quot;&gt;让小网站一直小下去&lt;/div&gt;
+  &lt;div&gt;
+    &lt;button class=&quot;q-pill&quot; type=&quot;button&quot;&gt;
+      &lt;svg&gt;…&lt;/svg&gt;
+      128
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <h2>元信息 <code>.q-meta</code></h2>
+          <p>16px 的三级灰文字。用于日期、类别、「已保存」这类状态，以及没有数据时的那一句话。</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="buttons.html">
+              <span class="q-row-title">按钮</span>
+              <span class="q-row-meta">按钮、小胶囊和图标按钮</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="forms.html">
+              <span class="q-row-title">表单</span>
+              <span class="q-row-meta">输入框、选择和开关</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>顶栏与导航 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：顶栏与导航。面包屑和全屏菜单。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">顶栏与导航</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>整个网站的导航只有两样东西：粘在顶部的一行面包屑，和点菜单按钮后盖住整页的导航层。没有侧边栏，没有页脚导航。</p>
+          <h2>顶栏 <code>.q-topbar</code></h2>
+          <p>菜单按钮、站点名、一条斜杠、当前页。56px 高，没有边框和阴影，底色和页面相同。</p>
+        </div>
+
+        <div class="q-demo">
+          <header class="q-topbar">
+            <button class="q-icon-button" type="button" aria-label="菜单">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+            </button>
+            <a href="../">潮池</a>
+            <span class="q-topbar-sep">/</span>
+            <a href="./">文档</a>
+            <button class="q-icon-button q-topbar-end" type="button" aria-label="切换深浅色">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+            </button>
+          </header>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;header class=&quot;q-topbar&quot;&gt;
+  &lt;button class=&quot;q-icon-button&quot; type=&quot;button&quot; aria-label=&quot;菜单&quot;&gt;
+    &lt;svg&gt;…&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;a href=&quot;../&quot;&gt;潮池&lt;/a&gt;
+  &lt;span class=&quot;q-topbar-sep&quot;&gt;/&lt;/span&gt;
+  &lt;a href=&quot;./&quot;&gt;文档&lt;/a&gt;
+  &lt;button class=&quot;q-icon-button q-topbar-end&quot; type=&quot;button&quot; aria-label=&quot;切换深浅色&quot;&gt;
+    &lt;svg&gt;…&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/header&gt;</code></pre>
+          <ul>
+            <li>面包屑最多两级：站点名和当前所在的栏目。</li>
+            <li>最右边可以放一个图标按钮，加上 <code>.q-topbar-end</code> 推到右侧。最多放一个，比如切换深浅色，或者当前用户的头像。</li>
+          </ul>
+          <h2>全屏导航 <code>.q-nav</code></h2>
+          <p>点左上角的菜单按钮可以看到真实的效果。它盖住整个页面，底色和页面相同。下面是它里面的内容：</p>
+        </div>
+
+        <div class="q-demo">
+          <nav class="q-nav">
+            <div class="q-nav-group">
+              <a class="q-nav-link" href="../">首页</a>
+              <a class="q-nav-link" href="./" aria-current="page">文档</a>
+            </div>
+            <div class="q-nav-group">
+              <span class="q-nav-label">示例</span>
+              <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+              <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+            </div>
+          </nav>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;nav class=&quot;q-nav&quot;&gt;
+  &lt;div class=&quot;q-nav-group&quot;&gt;
+    &lt;a class=&quot;q-nav-link&quot; href=&quot;../&quot;&gt;首页&lt;/a&gt;
+    &lt;a class=&quot;q-nav-link&quot; href=&quot;./&quot; aria-current=&quot;page&quot;&gt;文档&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;q-nav-group&quot;&gt;
+    &lt;span class=&quot;q-nav-label&quot;&gt;示例&lt;/span&gt;
+    &lt;a class=&quot;q-nav-link&quot; href=&quot;../examples/app.html&quot;&gt;应用列表&lt;/a&gt;
+    &lt;a class=&quot;q-nav-link&quot; href=&quot;../examples/settings.html&quot;&gt;设置页&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+          <ul>
+            <li>链接是 20px 半粗的灰色字，当前页（<code>aria-current=&quot;page&quot;</code>）和悬停时变成主色。</li>
+            <li>用 <code>hidden</code> 属性控制显示和隐藏。</li>
+            <li>链接分组，组与组相距 32px，每组可以有一个 14px 的灰色小标签。</li>
+            <li>应用的全部导航都放在这里。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="structure.html">
+              <span class="q-row-title">容器与分组</span>
+              <span class="q-row-meta">页面容器、分组和标题区</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="list.html">
+              <span class="q-row-title">列表</span>
+              <span class="q-row-meta">这套设计的核心组件</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

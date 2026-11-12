@@ -324,8 +324,9 @@ a {
 /* 可选：把主文字和附注包起来，手机上它们并排，桌面端这层包装自动消失 */
 .q-row-main {
   display: flex;
+  flex-wrap: wrap; /* 手机上放不下时，附注整个换到下一行，不把主文字挤断 */
   align-items: center;
-  gap: var(--space-2);
+  gap: 0 var(--space-2);
 }
 
 .q-row {
@@ -492,7 +493,7 @@ a {
   margin: 0;
 }
 
-.q-prose > :first-child {
+.q-section > .q-prose > :first-child {
   margin-top: 0;
 }
 
@@ -1157,6 +1158,41 @@ a {
 
 .q-footer a:hover {
   color: var(--text-primary);
+}
+
+/* =========================================================
+   Docs — 写文档时用的两个小东西
+   ========================================================= */
+
+/* 示例框：上下各一条细线，中间放真实的组件。后面通常跟一段代码 */
+.q-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+/* 顶栏和全屏导航放进示例框时，不再粘顶和盖住页面 */
+.q-demo .q-topbar,
+.q-demo .q-nav {
+  position: static;
+  z-index: auto;
+  padding: 0;
+  overflow: visible;
+}
+
+/* 色块：<span class="q-swatch" style="--swatch: var(--brand)">，可以当列表行的图标用 */
+.q-swatch {
+  display: inline-block;
+  flex: none;
+  width: var(--row-icon);
+  height: var(--row-icon);
+  border-radius: var(--radius-sm);
+  background: var(--swatch, var(--bg-tertiary));
+  box-shadow: inset 0 0 0 1px var(--border-primary);
 }
 
 /* =========================================================

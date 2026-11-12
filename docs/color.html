@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>颜色 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：颜色。灰度、背景和状态色。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">基础</p>
+        <h1 class="q-title">颜色</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>所有颜色都从一条中性色阶取值，通过语义变量使用。组件里不直接写色值。下面每一行右边的值是当前模式下实际生效的值，点右上角的按钮切换深浅色，它们会跟着变。</p>
+          <h2>文字</h2>
+          <p>四级灰度承担全部层级。</p>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-primary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-primary</span>
+                <span class="q-row-meta">标题、正文、主文字</span>
+              </span>
+              <span class="q-row-date" data-token="--text-primary">#171717</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-secondary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-secondary</span>
+                <span class="q-row-meta">大号引言</span>
+              </span>
+              <span class="q-row-date" data-token="--text-secondary">#525252</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-tertiary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-tertiary</span>
+                <span class="q-row-meta">日期、引用、提示</span>
+              </span>
+              <span class="q-row-date" data-token="--text-tertiary">#737373</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-quaternary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-quaternary</span>
+                <span class="q-row-meta">附注、图标、占位文字</span>
+              </span>
+              <span class="q-row-date" data-token="--text-quaternary">#a1a1a1</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-label)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-label</span>
+                <span class="q-row-meta">分组标签、表头</span>
+              </span>
+              <span class="q-row-date" data-token="--text-label">#a1a1a1</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--text-inverse)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--text-inverse</span>
+                <span class="q-row-meta">主按钮上的文字</span>
+              </span>
+              <span class="q-row-date" data-token="--text-inverse">#ffffff</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <p>深色模式下文字用的是带透明度的白：90%、70%、50% 和 32%，不是固定的灰色值。分组标签在深色下提亮一级，否则看不清。</p>
+          <h2>背景</h2>
+          <p>页面是纯白或纯黑。不给区块加底色来分区，用留白。</p>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-page)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-page</span>
+                <span class="q-row-meta">页面、顶栏、导航层</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-page">#ffffff</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-secondary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-secondary</span>
+                <span class="q-row-meta">小胶囊的悬停态</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-secondary">#fafafa</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-tertiary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-tertiary</span>
+                <span class="q-row-meta">代码、输入框、标签</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-tertiary">#f5f5f5</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-elevated)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-elevated</span>
+                <span class="q-row-meta">按钮、对话框</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-elevated">#ffffff</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-hover)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-hover</span>
+                <span class="q-row-meta">透明按钮的悬停层</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-hover">黑 8%</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--bg-inverse)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--bg-inverse</span>
+                <span class="q-row-meta">主按钮</span>
+              </span>
+              <span class="q-row-date" data-token="--bg-inverse">#171717</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--veil)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--veil</span>
+                <span class="q-row-meta">对话框后面的遮罩</span>
+              </span>
+              <span class="q-row-date" data-token="--veil">白 80%</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <h2>品牌色和状态色</h2>
+          <p>颜色的面积越小越好。不做彩色的实心按钮、彩色的提示条、彩色的标签。</p>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--brand)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--brand</span>
+                <span class="q-row-meta">强调短线，一页一次</span>
+              </span>
+              <span class="q-row-date" data-token="--brand">#fc532a</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--danger)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--danger</span>
+                <span class="q-row-meta">错误提示、危险按钮的文字</span>
+              </span>
+              <span class="q-row-date" data-token="--danger">#d93036</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--success)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--success</span>
+                <span class="q-row-meta">状态圆点</span>
+              </span>
+              <span class="q-row-date" data-token="--success">#2f9e63</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--warning)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--warning</span>
+                <span class="q-row-meta">状态圆点</span>
+              </span>
+              <span class="q-row-date" data-token="--warning">#e5a000</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <h2>线条和选中</h2>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--border-primary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--border-primary</span>
+                <span class="q-row-meta">引用和提示的左边线、横线</span>
+              </span>
+              <span class="q-row-date" data-token="--border-primary">黑 12%</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--border-secondary)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--border-secondary</span>
+                <span class="q-row-meta">更淡的线</span>
+              </span>
+              <span class="q-row-date" data-token="--border-secondary">黑 9%</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--selection-bg)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--selection-bg</span>
+                <span class="q-row-meta">选中文字的底色</span>
+              </span>
+              <span class="q-row-date" data-token="--selection-bg">蓝 10%</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--selection-text)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--selection-text</span>
+                <span class="q-row-meta">选中文字的颜色</span>
+              </span>
+              <span class="q-row-date" data-token="--selection-text">蓝</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <h2>中性色阶</h2>
+          <p>上面的语义变量都从这条色阶取值。平时不直接用它，只在定义新的语义变量时用。</p>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-50)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-50</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-50">#fafafa</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-100)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-100</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-100">#f5f5f5</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-200)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-200</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-200">#e5e5e5</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-300)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-300</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-300">#d4d4d4</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-400)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-400</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-400">#a1a1a1</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-500)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-500</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-500">#737373</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-600)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-600</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-600">#525252</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-700)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-700</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-700">#404040</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-800)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-800</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-800">#262626</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-850)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-850</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-850">#1d1d1d</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-900)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-900</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-900">#171717</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-swatch q-row-icon" style="--swatch: var(--neutral-950)"></span>
+              <span class="q-row-main">
+                <span class="q-row-title">--neutral-950</span>
+                <span class="q-row-meta"></span>
+              </span>
+              <span class="q-row-date" data-token="--neutral-950">#0a0a0a</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="type.html">
+              <span class="q-row-title">字体与排版</span>
+              <span class="q-row-meta">字体、字号和中文规则</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="layout.html">
+              <span class="q-row-title">间距与布局</span>
+              <span class="q-row-meta">间距、栏宽和断点</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

@@ -2,6 +2,8 @@
 
 这份文档写给两类读者：动手做页面的人，和被要求"按这套风格做页面"的 AI。读完它再去看 [tokens.css](tokens.css) 和 [components.css](components.css)，就能做出风格一致的新页面。
 
+同样的内容有一个可以点着看的版本：<https://wolfyxbt.github.io/quiet-design-system/>。那里每个组件都有真实的效果和代码，颜色页会显示每个变量当前的取值。两边不一致时，以 `tokens.css` 和 `components.css` 为准。
+
 ## 一句话概括
 
 **一栏文字，四级灰度，三种字重。** 没有卡片、没有边框、没有底色块，层级全靠字号、字重和灰度的深浅来表达。
@@ -199,7 +201,7 @@
 | 应用页 | 带数据的列表：订单、文档、成员 | `.q-page.q-page--app`，768px | 标题 + 主按钮 → 标签页 → 数据概览 → 搜索框 → 表格 |
 | 表单页 | 设置、注册、新建、编辑 | `.q-page`，672px | 页面标题 → 若干个「标签 + 字段」→ 保存按钮 |
 
-每一种都有可运行的例子：介绍页 [index.html](index.html)、[examples/product.html](examples/product.html)、[examples/personal.html](examples/personal.html)，列表页 [writing/index.html](writing/index.html)，文章页 [writing/keep-it-small.html](writing/keep-it-small.html)，应用页 [examples/app.html](examples/app.html)，表单页 [examples/settings.html](examples/settings.html)。
+每一种都有可运行的例子：介绍页 [index.html](index.html)、[examples/product.html](examples/product.html)、[examples/personal.html](examples/personal.html)，列表页 [docs/index.html](docs/index.html)、[writing/index.html](writing/index.html)，文章页 [writing/keep-it-small.html](writing/keep-it-small.html) 和 [docs/](docs/) 里的每一篇文档，应用页 [examples/app.html](examples/app.html)，表单页 [examples/settings.html](examples/settings.html)。
 
 拼页面时要守住的几条：
 
@@ -567,6 +569,28 @@
 </p>
 ```
 
+### 写文档用的：示例框 `.q-demo` 和色块 `.q-swatch`
+
+- `.q-demo`：上下各一条细线，中间放真实的组件，后面跟一段代码（`<pre>`）。文档页的正文由交替出现的 `.q-prose` 和 `.q-demo` 组成，外面包一层 `.q-stack`。示例不能放进 `.q-prose` 里面，否则正文的链接和列表样式会套到组件上。
+- `.q-swatch`：20px 的小色块，4px 圆角，一圈细描边。颜色用 `style="--swatch: var(--brand)"` 指定。可以加上 `.q-row-icon` 当列表行的图标，用来排色板。
+
+```html
+<div class="q-stack">
+  <div class="q-prose">
+    <h2>按钮</h2>
+    <p>36px 高、全圆角。</p>
+  </div>
+  <div class="q-demo">
+    <div class="q-actions">
+      <button class="q-button" type="button">查看价格</button>
+    </div>
+  </div>
+  <div class="q-prose">
+    <pre><code>&lt;button class="q-button"&gt;查看价格&lt;/button&gt;</code></pre>
+  </div>
+</div>
+```
+
 ### 分隔
 
 - `.q-hatch`：8px 高的细斜纹带，横跨整个视口，只用来分开文章正文和「延伸阅读」，一页最多一条。
@@ -620,6 +644,7 @@
 - **按钮**：默认按钮是大一号的小胶囊，幽灵按钮是带文字的图标按钮，主按钮把主文字色用作底色。
 - **表单**：输入框用行内代码的浅灰底和图片的 8px 圆角，不加边框。
 - **表格、数据概览、标签页**：表格是对齐了列的列表，表头是分组标签；数据概览是分组标签加页面标题的字号；标签页是导航链接的做法。
+- **示例框和色块**：示例框用的是正文横线的那种细线，色块是列表行的小图标。
 - **状态、标签、提示、对话框、页脚**：状态色只有圆点大小；标签是行内代码的做法；提示是引用块的做法；对话框用按钮的描边和阴影。
 - **应用页和表单页**两种页面，以及 `.q-header`、`.q-actions`、`.q-row-end`、`.q-row--inline`、`.q-topbar-end`。
 - **状态色** `--danger`、`--success`、`--warning`。

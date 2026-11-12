@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表单 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：表单。输入框、选择和开关。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">表单</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>字段从上到下排成一列，相距 24px。输入框没有边框，只有一层浅灰的底色，和行内代码是同一种灰。</p>
+          <h2>字段 <code>.q-field</code></h2>
+          <p>标签在上，输入框在中间，说明在下面。标签是 16px 中等字重，说明是 14px 的三级灰。</p>
+        </div>
+
+        <div class="q-demo">
+          <label class="q-field">
+            <span class="q-field-label">邮箱</span>
+            <input class="q-input" type="email" placeholder="you@example.com" />
+            <span class="q-field-hint">用于登录和接收每周摘要。</span>
+          </label>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;label class=&quot;q-field&quot;&gt;
+  &lt;span class=&quot;q-field-label&quot;&gt;邮箱&lt;/span&gt;
+  &lt;input class=&quot;q-input&quot; type=&quot;email&quot; placeholder=&quot;you@example.com&quot; /&gt;
+  &lt;span class=&quot;q-field-hint&quot;&gt;用于登录和接收每周摘要。&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+          <p>输入框 40px 高、8px 圆角。点进去会出现一圈 2px 的主色描边。</p>
+          <h3>出错</h3>
+          <p>给输入框加 <code>aria-invalid=&quot;true&quot;</code>，描边变成红色，下面用 <code>.q-field-error</code> 写明原因。</p>
+        </div>
+
+        <div class="q-demo">
+          <label class="q-field">
+            <span class="q-field-label">名称</span>
+            <input class="q-input" type="text" aria-invalid="true" />
+            <span class="q-field-error">名称不能为空。</span>
+          </label>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;label class=&quot;q-field&quot;&gt;
+  &lt;span class=&quot;q-field-label&quot;&gt;名称&lt;/span&gt;
+  &lt;input class=&quot;q-input&quot; type=&quot;text&quot; aria-invalid=&quot;true&quot; /&gt;
+  &lt;span class=&quot;q-field-error&quot;&gt;名称不能为空。&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+          <h2>多行文字和下拉框</h2>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-form">
+            <label class="q-field">
+              <span class="q-field-label">简介</span>
+              <textarea class="q-textarea" placeholder="一两句话介绍自己"></textarea>
+            </label>
+            <label class="q-field">
+              <span class="q-field-label">语言</span>
+              <select class="q-select">
+                <option>简体中文</option>
+                <option>繁體中文</option>
+                <option>English</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-form&quot;&gt;
+  &lt;label class=&quot;q-field&quot;&gt;
+    &lt;span class=&quot;q-field-label&quot;&gt;简介&lt;/span&gt;
+    &lt;textarea class=&quot;q-textarea&quot; placeholder=&quot;一两句话介绍自己&quot;&gt;&lt;/textarea&gt;
+  &lt;/label&gt;
+  &lt;label class=&quot;q-field&quot;&gt;
+    &lt;span class=&quot;q-field-label&quot;&gt;语言&lt;/span&gt;
+    &lt;select class=&quot;q-select&quot;&gt;
+      &lt;option&gt;简体中文&lt;/option&gt;
+      &lt;option&gt;繁體中文&lt;/option&gt;
+      &lt;option&gt;English&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+          <h2>单选和多选 <code>.q-check</code></h2>
+          <p>用浏览器自带的控件，只把颜色改成主文字色。几个选项用 <code>.q-checks</code> 横着排。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-checks">
+            <label class="q-check"><input type="radio" name="demo-theme" checked />跟随系统</label>
+            <label class="q-check"><input type="radio" name="demo-theme" />浅色</label>
+            <label class="q-check"><input type="radio" name="demo-theme" />深色</label>
+          </div>
+          <div class="q-checks">
+            <label class="q-check"><input type="checkbox" checked />评论</label>
+            <label class="q-check"><input type="checkbox" />提及</label>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-checks&quot;&gt;
+  &lt;label class=&quot;q-check&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;demo-theme&quot; checked /&gt;跟随系统&lt;/label&gt;
+  &lt;label class=&quot;q-check&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;demo-theme&quot; /&gt;浅色&lt;/label&gt;
+  &lt;label class=&quot;q-check&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;demo-theme&quot; /&gt;深色&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;q-checks&quot;&gt;
+  &lt;label class=&quot;q-check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked /&gt;评论&lt;/label&gt;
+  &lt;label class=&quot;q-check&quot;&gt;&lt;input type=&quot;checkbox&quot; /&gt;提及&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+          <h2>开关 <code>.q-switch</code></h2>
+          <p>36×20px。关着是浅灰，开着是主文字色。通常放在列表行的行尾，见<a href="list.html">列表</a>。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-checks">
+            <input class="q-switch" type="checkbox" aria-label="开着的开关" checked />
+            <input class="q-switch" type="checkbox" aria-label="关着的开关" />
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-checks&quot;&gt;
+  &lt;input class=&quot;q-switch&quot; type=&quot;checkbox&quot; aria-label=&quot;开着的开关&quot; checked /&gt;
+  &lt;input class=&quot;q-switch&quot; type=&quot;checkbox&quot; aria-label=&quot;关着的开关&quot; /&gt;
+&lt;/div&gt;</code></pre>
+          <h2>整个表单 <code>.q-form</code></h2>
+          <p>把字段包在 <code>.q-form</code> 里，最后是一排按钮。保存用主按钮。完整的例子见<a href="../examples/settings.html">设置页</a>。</p>
+          <pre><code>&lt;form class=&quot;q-form&quot;&gt;
+  &lt;label class=&quot;q-field&quot;&gt;…&lt;/label&gt;
+  &lt;label class=&quot;q-field&quot;&gt;…&lt;/label&gt;
+  &lt;div class=&quot;q-actions&quot;&gt;
+    &lt;button class=&quot;q-button q-button--primary&quot; type=&quot;submit&quot;&gt;保存修改&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+          <ul>
+            <li>一个字段占一行，不把两个字段并排。</li>
+            <li>字段多了就用分组标签分成几组，每组之间 64px。</li>
+            <li>输入框里的字不小于 16px，手机上点进去才不会自动放大页面。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="data.html">
+              <span class="q-row-title">数据</span>
+              <span class="q-row-meta">标签页、概览、表格和状态</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="feedback.html">
+              <span class="q-row-title">提示与对话框</span>
+              <span class="q-row-meta">说明和确认</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

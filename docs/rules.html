@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>该做与不该做 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：该做与不该做。拼页面时的检查清单。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">开始</p>
+        <h1 class="q-title">该做与不该做</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>组件都对，页面也可能走样。问题通常出在拼的方式上。下面是做完一个页面之后可以逐条对照的清单。</p>
+          <h2>该做</h2>
+          <ul>
+            <li>先确定页面是<a href="pages.html">五种页面</a>里的哪一种，再照它的顺序往下排。</li>
+            <li>新内容先试着排成列表行，排不进去再考虑表格，最后才是别的形式。</li>
+            <li>用灰度区分主次：主文字用一级，补充信息用四级。</li>
+            <li>时间、数字、价格这类数据用等宽字体，右对齐。</li>
+            <li>保持大留白，哪怕页面看起来有点空。</li>
+            <li>需要颜色的时候，先试试能不能只用一个 8px 的圆点。</li>
+          </ul>
+          <h2>不该做</h2>
+          <ul>
+            <li>不要加卡片、边框、底色块来分组。</li>
+            <li>不要给链接和按钮用品牌色或状态色做底色。</li>
+            <li>不要用图标代替文字标签。</li>
+            <li>不要加悬停底色、位移、缩放这类效果。</li>
+            <li>不要把分组标签加粗、放大或改成全大写。</li>
+            <li>不要引入新的字号、灰度或圆角，先在现有的变量里找。</li>
+            <li>不要在一个页面里混用两种栏宽，也不要把两种页面接在同一页里。</li>
+            <li>不要在一个页面上放两个主按钮。</li>
+            <li>不要加侧边栏、多栏布局、固定在底部的操作条。</li>
+            <li>不要把斜纹带当成通用分隔线，不要把小胶囊当成主要按钮。</li>
+            <li>不要为了展示样式，把代码、加粗、列表、引用、横线挤在几行正文里。</li>
+          </ul>
+          <h2>需要新组件的时候</h2>
+          <p>先找一个已有的组件照着做，只用 <code>tokens.css</code> 里已有的变量。这套系统里后补的组件都是这样来的：</p>
+          <ul>
+            <li>默认按钮是大一号的小胶囊，幽灵按钮是带文字的图标按钮。</li>
+            <li>输入框用行内代码的浅灰底和图片的 8px 圆角。</li>
+            <li>表格是对齐了列的列表，表头就是分组标签。</li>
+            <li>标签页是导航链接的做法：灰色文字，当前项变深。</li>
+            <li>提示是引用块的做法：左边一条细线。</li>
+          </ul>
+          <h2>哪些取自原站，哪些是后补的</h2>
+          <p>这套规范最初提炼自一个公开的个人网站，之后扩展成了通用的设计风格。</p>
+          <ul>
+            <li><strong>取自原站</strong>：色阶和四级灰度、字号、间距、三种栏宽，以及顶栏、全屏导航、列表行、引言、正文、小胶囊、图标按钮、斜纹带、强调短线的结构。</li>
+            <li><strong>后补的</strong>：按钮、表单、表格、数据概览、标签页、状态、标签、提示、对话框、页脚，应用页和表单页两种页面，状态色，键盘焦点环，手动切换深浅色，以及全部中文排版的调整。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="color.html">
+              <span class="q-row-title">颜色</span>
+              <span class="q-row-meta">灰度、背景和状态色</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="type.html">
+              <span class="q-row-title">字体与排版</span>
+              <span class="q-row-meta">字体、字号和中文规则</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

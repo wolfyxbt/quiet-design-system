@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>容器与分组 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：容器与分组。页面容器、分组和标题区。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">容器与分组</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>每个页面都由同样的几层套起来：一个居中的容器，里面是若干个分组。</p>
+          <h2>页面容器 <code>.q-page</code></h2>
+          <p>居中的单栏，左右留白 16px，区块之间 64px。用修饰类选择栏宽：</p>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">.q-page</span>
+                <span class="q-row-meta">表单页</span>
+              </span>
+              <span class="q-row-date">672px</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">.q-page--airy</span>
+                <span class="q-row-meta">介绍页，上下留白加倍</span>
+              </span>
+              <span class="q-row-date">672px</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">.q-page--narrow</span>
+                <span class="q-row-meta">列表页</span>
+              </span>
+              <span class="q-row-date">576px</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">.q-page--article</span>
+                <span class="q-row-meta">文章页，区块间距 32px</span>
+              </span>
+              <span class="q-row-date">768px</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">.q-page--app</span>
+                <span class="q-row-meta">应用页，区块间距 32px</span>
+              </span>
+              <span class="q-row-date">768px</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <pre><code>&lt;main class=&quot;q-page q-page--airy&quot;&gt;
+  …
+&lt;/main&gt;</code></pre>
+          <h2>分组 <code>.q-section</code></h2>
+          <p>一个灰色小标签加一段内容，两者相距 16px。内容可以是列表、表单、表格或一段正文。这是页面上最常见的结构。</p>
+        </div>
+
+        <div class="q-demo">
+          <section class="q-section">
+            <h2 class="q-section-label">功能</h2>
+            <ul class="q-list">
+              <li>
+                <div class="q-row">
+                  <span class="q-row-title">长文编辑</span>
+                  <span class="q-row-meta">标题、引用、代码和图片</span>
+                </div>
+              </li>
+              <li>
+                <div class="q-row">
+                  <span class="q-row-title">版本记录</span>
+                  <span class="q-row-meta">每次保存都能找回</span>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;section class=&quot;q-section&quot;&gt;
+  &lt;h2 class=&quot;q-section-label&quot;&gt;功能&lt;/h2&gt;
+  &lt;ul class=&quot;q-list&quot;&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;q-row&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;长文编辑&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;标题、引用、代码和图片&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;q-row&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;版本记录&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;每次保存都能找回&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+          <h2>标题区 <code>.q-header</code></h2>
+          <p>页面标题在左，主按钮在右，放不下时按钮换到下一行。用在应用页的开头。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-header">
+            <div class="q-title">文档</div>
+            <a class="q-button q-button--primary" href="../examples/app.html">新建文档</a>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-header&quot;&gt;
+  &lt;div class=&quot;q-title&quot;&gt;文档&lt;/div&gt;
+  &lt;a class=&quot;q-button q-button--primary&quot; href=&quot;../examples/app.html&quot;&gt;新建文档&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+          <p>真实页面里标题用 <code>&lt;h1 class=&quot;q-title&quot;&gt;</code>。</p>
+          <h2>竖排 <code>.q-stack</code></h2>
+          <p>把几个元素从上到下排开，相距 20px，和段落间距相同。<code>.q-stack--loose</code> 是 24px，用在标题、引言和按钮之间。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-stack q-stack--loose">
+            <div class="q-title">让团队安静地写长文</div>
+            <p class="q-lead">潮池是给小团队用的写作工具。</p>
+            <div class="q-actions">
+              <a class="q-button" href="../examples/product.html">看产品首页</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-stack q-stack--loose&quot;&gt;
+  &lt;div class=&quot;q-title&quot;&gt;让团队安静地写长文&lt;/div&gt;
+  &lt;p class=&quot;q-lead&quot;&gt;潮池是给小团队用的写作工具。&lt;/p&gt;
+  &lt;div class=&quot;q-actions&quot;&gt;
+    &lt;a class=&quot;q-button&quot; href=&quot;../examples/product.html&quot;&gt;看产品首页&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          <h2>只给读屏软件看 <code>.q-sr-only</code></h2>
+          <p>介绍页用引言当开头时，把 <code>&lt;h1&gt;</code> 加上这个类藏起来，页面仍然有一个标题。</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="list.html">
+              <span class="q-row-title">列表</span>
+              <span class="q-row-meta">这套设计的核心组件</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="text.html">
+              <span class="q-row-title">引言与正文</span>
+              <span class="q-row-meta">引言、链接和长文</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

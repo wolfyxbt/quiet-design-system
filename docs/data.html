@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数据 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：数据。标签页、概览、表格和状态。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">数据</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>应用页里展示数据的几样东西。它们放在一起的样子见<a href="../examples/app.html">应用列表</a>。</p>
+          <h2>标签页 <code>.q-tabs</code></h2>
+          <p>一排 16px 的灰色文字，当前项变成主色。没有下划线和底色，做法和导航链接一样。用来切换同一份数据的不同筛选。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-tabs" role="tablist">
+            <button class="q-tab" type="button" role="tab" aria-selected="true">全部</button>
+            <button class="q-tab" type="button" role="tab" aria-selected="false">草稿</button>
+            <button class="q-tab" type="button" role="tab" aria-selected="false">审阅中</button>
+            <button class="q-tab" type="button" role="tab" aria-selected="false">已发布</button>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-tabs&quot; role=&quot;tablist&quot;&gt;
+  &lt;button class=&quot;q-tab&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot;&gt;全部&lt;/button&gt;
+  &lt;button class=&quot;q-tab&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;草稿&lt;/button&gt;
+  &lt;button class=&quot;q-tab&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;审阅中&lt;/button&gt;
+  &lt;button class=&quot;q-tab&quot; type=&quot;button&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot;&gt;已发布&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          <p>切换的是页面时用链接，当前项写 <code>aria-current=&quot;page&quot;</code>。</p>
+          <h2>数据概览 <code>.q-stats</code></h2>
+          <p>几个关键数字排成一行：灰色小标签在上，30px 的粗体数字在下。放不下时自动换行。最多放四个。</p>
+        </div>
+
+        <div class="q-demo">
+          <dl class="q-stats">
+            <div class="q-stat">
+              <dt class="q-stat-label">文档</dt>
+              <dd class="q-stat-value">128</dd>
+            </div>
+            <div class="q-stat">
+              <dt class="q-stat-label">已发布</dt>
+              <dd class="q-stat-value">96</dd>
+            </div>
+            <div class="q-stat">
+              <dt class="q-stat-label">总字数</dt>
+              <dd class="q-stat-value">28,565</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;dl class=&quot;q-stats&quot;&gt;
+  &lt;div class=&quot;q-stat&quot;&gt;
+    &lt;dt class=&quot;q-stat-label&quot;&gt;文档&lt;/dt&gt;
+    &lt;dd class=&quot;q-stat-value&quot;&gt;128&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;q-stat&quot;&gt;
+    &lt;dt class=&quot;q-stat-label&quot;&gt;已发布&lt;/dt&gt;
+    &lt;dd class=&quot;q-stat-value&quot;&gt;96&lt;/dd&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;q-stat&quot;&gt;
+    &lt;dt class=&quot;q-stat-label&quot;&gt;总字数&lt;/dt&gt;
+    &lt;dd class=&quot;q-stat-value&quot;&gt;28,565&lt;/dd&gt;
+  &lt;/div&gt;
+&lt;/dl&gt;</code></pre>
+          <h2>表格 <code>.q-table</code></h2>
+          <p>把列对齐了的列表。表头是灰色小标签，第一列是中等字重的主文字。没有边框、斑马纹和悬停底色。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-table-wrap">
+            <table class="q-table">
+              <thead>
+                <tr>
+                  <th>标题</th>
+                  <th>状态</th>
+                  <th class="q-num">字数</th>
+                  <th class="q-num">更新</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>写作规范</td>
+                  <td><span class="q-status q-status--success">已发布</span></td>
+                  <td class="q-num">3,410</td>
+                  <td class="q-num q-muted">04.21</td>
+                </tr>
+                <tr>
+                  <td>定价调整说明</td>
+                  <td><span class="q-status q-status--warning">审阅中</span></td>
+                  <td class="q-num">1,875</td>
+                  <td class="q-num q-muted">04.28</td>
+                </tr>
+                <tr>
+                  <td>周会纪要模板</td>
+                  <td><span class="q-status">草稿</span></td>
+                  <td class="q-num">520</td>
+                  <td class="q-num q-muted">04.15</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-table-wrap&quot;&gt;
+  &lt;table class=&quot;q-table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;标题&lt;/th&gt;
+        &lt;th&gt;状态&lt;/th&gt;
+        &lt;th class=&quot;q-num&quot;&gt;字数&lt;/th&gt;
+        &lt;th class=&quot;q-num&quot;&gt;更新&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;写作规范&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;q-status q-status--success&quot;&gt;已发布&lt;/span&gt;&lt;/td&gt;
+        &lt;td class=&quot;q-num&quot;&gt;3,410&lt;/td&gt;
+        &lt;td class=&quot;q-num q-muted&quot;&gt;04.21&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;定价调整说明&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;q-status q-status--warning&quot;&gt;审阅中&lt;/span&gt;&lt;/td&gt;
+        &lt;td class=&quot;q-num&quot;&gt;1,875&lt;/td&gt;
+        &lt;td class=&quot;q-num q-muted&quot;&gt;04.28&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;周会纪要模板&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;q-status&quot;&gt;草稿&lt;/span&gt;&lt;/td&gt;
+        &lt;td class=&quot;q-num&quot;&gt;520&lt;/td&gt;
+        &lt;td class=&quot;q-num q-muted&quot;&gt;04.15&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+          <ul>
+            <li>数字和日期的单元格加 <code>.q-num</code>：等宽字体，右对齐。对应的表头也加上。</li>
+            <li>次要的列加 <code>.q-muted</code>，变成最浅的灰。</li>
+            <li>外面包一层 <code>.q-table-wrap</code>，手机上放不下时可以横向滑动。</li>
+            <li>不超过五列。再多就把次要的列挪到详情页。</li>
+            <li>桌面端文字是 20px，和列表一样大。手机上是 16px。</li>
+          </ul>
+          <h3>没有数据的时候</h3>
+          <p>在表格的位置放一句灰色的话，需要的话下面跟一个按钮。不用插图。</p>
+        </div>
+
+        <div class="q-demo">
+          <p class="q-meta">没有符合条件的文档。</p>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;p class=&quot;q-meta&quot;&gt;没有符合条件的文档。&lt;/p&gt;</code></pre>
+          <h2>状态 <code>.q-status</code></h2>
+          <p>文字前面一个 8px 的圆点。颜色只在圆点上，文字不变色。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-checks">
+            <span class="q-status">草稿</span>
+            <span class="q-status q-status--warning">审阅中</span>
+            <span class="q-status q-status--success">已发布</span>
+            <span class="q-status q-status--danger">发布失败</span>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-checks&quot;&gt;
+  &lt;span class=&quot;q-status&quot;&gt;草稿&lt;/span&gt;
+  &lt;span class=&quot;q-status q-status--warning&quot;&gt;审阅中&lt;/span&gt;
+  &lt;span class=&quot;q-status q-status--success&quot;&gt;已发布&lt;/span&gt;
+  &lt;span class=&quot;q-status q-status--danger&quot;&gt;发布失败&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+          <h2>标签 <code>.q-tag</code></h2>
+          <p>14px 的灰色小字，浅灰底，4px 圆角，和行内代码是同一种做法。用于「测试版」「只读」这类附加说明。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-row">
+            <span class="q-row-title">段落评论</span>
+            <span class="q-tag">测试版</span>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-row&quot;&gt;
+  &lt;span class=&quot;q-row-title&quot;&gt;段落评论&lt;/span&gt;
+  &lt;span class=&quot;q-tag&quot;&gt;测试版&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="feedback.html">
+              <span class="q-row-title">提示与对话框</span>
+              <span class="q-row-meta">说明和确认</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="dividers.html">
+              <span class="q-row-title">分隔与页脚</span>
+              <span class="q-row-meta">斜纹带、短线和页脚</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiet Design System</title>
-    <meta name="description" content="一套安静的通用网页设计风格：一栏文字，四级灰度，三种字重。个人主页、产品官网、文档和应用都能用。" />
+    <meta name="description" content="一套安静的通用网页设计风格：一栏文字，四级灰度，三种字重。这里是它的完整说明：原则、颜色、排版、布局和每一个组件。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -16,18 +16,13 @@
     <!-- 顶栏 -->
     <header class="q-topbar">
       <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-          <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
       </button>
       <a href="./">Quiet</a>
       <span class="q-topbar-sep">/</span>
       <a href="./">首页</a>
       <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
-        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-          <circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" />
-          <path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" />
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
       </button>
     </header>
 
@@ -35,6 +30,7 @@
     <nav class="q-nav" id="nav" hidden>
       <div class="q-nav-group">
         <a class="q-nav-link" href="./" aria-current="page">首页</a>
+        <a class="q-nav-link" href="docs/">文档</a>
         <a class="q-nav-link" href="writing/">文章</a>
       </div>
       <div class="q-nav-group">
@@ -60,36 +56,142 @@
           它不限定用途。个人主页、产品官网、文档、应用里的列表和设置页，都用同一套规则做出来。
         </p>
         <p class="q-lead">
-          下面每个示例都是一个完整的页面，可以直接点进去看。样式和用法都在 <a class="q-link" href="https://github.com/wolfyxbt/quiet-design-system">GitHub</a> 上。
+          这个网站是它的说明书，本身也是用它做的。可以从<a class="q-link" href="docs/start.html">开始使用</a>读起，或者直接看下面的示例。
         </p>
       </div>
 
       <ul class="q-icon-links">
         <li>
           <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system" aria-label="源码">
-            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m10 9-5 5 5 5M18 9l5 5-5 5" />
-            </svg>
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 9-5 5 5 5M18 9l5 5-5 5" /></svg>
           </a>
         </li>
         <li>
           <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md" aria-label="设计规范">
-            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M8 4.5h8.5L21 9v14.5H8z" />
-              <path d="M11.5 13.5h6M11.5 18h6" />
-            </svg>
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4.5h8.5L21 9v14.5H8z" /><path d="M11.5 13.5h6M11.5 18h6" /></svg>
           </a>
         </li>
         <li>
           <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system/archive/refs/heads/main.zip" aria-label="下载">
-            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14 5v12M9 12.5l5 5 5-5M6 22.5h16" />
-            </svg>
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5v12M9 12.5l5 5 5-5M6 22.5h16" /></svg>
           </a>
         </li>
       </ul>
 
-      <!-- 列表：名称 + 一句话描述 -->
+      <section class="q-section">
+        <h2 class="q-section-label">开始</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="docs/start.html">
+              <span class="q-row-title">开始使用</span>
+              <span class="q-row-meta">引入文件、字体和深色模式</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/principles.html">
+              <span class="q-row-title">设计原则</span>
+              <span class="q-row-meta">六条原则和适用范围</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/rules.html">
+              <span class="q-row-title">该做与不该做</span>
+              <span class="q-row-meta">拼页面时的检查清单</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="q-section">
+        <h2 class="q-section-label">基础</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="docs/color.html">
+              <span class="q-row-title">颜色</span>
+              <span class="q-row-meta">灰度、背景和状态色</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/type.html">
+              <span class="q-row-title">字体与排版</span>
+              <span class="q-row-meta">字体、字号和中文规则</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/layout.html">
+              <span class="q-row-title">间距与布局</span>
+              <span class="q-row-meta">间距、栏宽和断点</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/pages.html">
+              <span class="q-row-title">五种页面</span>
+              <span class="q-row-meta">每种页面从上到下的顺序</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="q-section">
+        <h2 class="q-section-label">组件</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="docs/nav.html">
+              <span class="q-row-title">顶栏与导航</span>
+              <span class="q-row-meta">面包屑和全屏菜单</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/structure.html">
+              <span class="q-row-title">容器与分组</span>
+              <span class="q-row-meta">页面容器、分组和标题区</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/list.html">
+              <span class="q-row-title">列表</span>
+              <span class="q-row-meta">这套设计的核心组件</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/text.html">
+              <span class="q-row-title">引言与正文</span>
+              <span class="q-row-meta">引言、链接和长文</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/buttons.html">
+              <span class="q-row-title">按钮</span>
+              <span class="q-row-meta">按钮、小胶囊和图标按钮</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/forms.html">
+              <span class="q-row-title">表单</span>
+              <span class="q-row-meta">输入框、选择和开关</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/data.html">
+              <span class="q-row-title">数据</span>
+              <span class="q-row-meta">标签页、概览、表格和状态</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/feedback.html">
+              <span class="q-row-title">提示与对话框</span>
+              <span class="q-row-meta">说明和确认</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="docs/dividers.html">
+              <span class="q-row-title">分隔与页脚</span>
+              <span class="q-row-meta">斜纹带、短线和页脚</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
       <section class="q-section">
         <h2 class="q-section-label">示例</h2>
         <ul class="q-list">
@@ -120,7 +222,6 @@
         </ul>
       </section>
 
-      <!-- 列表：长标题 + 日期 -->
       <section class="q-section">
         <h2 class="q-section-label">文章</h2>
         <ul class="q-list">
@@ -145,32 +246,11 @@
         </ul>
       </section>
 
-      <section class="q-section">
-        <h2 class="q-section-label">设计系统</h2>
-        <ul class="q-list">
-          <li>
-            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system">
-              <span class="q-row-title">源码</span>
-              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              <span class="q-row-meta">GitHub 仓库</span>
-            </a>
-          </li>
-          <li>
-            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">
-              <span class="q-row-title">设计规范</span>
-              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              <span class="q-row-meta">颜色、字体和组件的说明</span>
-            </a>
-          </li>
-          <li>
-            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/tokens.css">
-              <span class="q-row-title">变量</span>
-              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              <span class="q-row-meta">全部设计变量，一个文件</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+      <p class="q-footer">
+        <a href="https://github.com/wolfyxbt/quiet-design-system">GitHub</a>
+        <a href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+        <a href="https://github.com/wolfyxbt/quiet-design-system/archive/refs/heads/main.zip">下载</a>
+      </p>
     </main>
   </body>
 </html>

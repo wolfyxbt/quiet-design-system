@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>字体与排版 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：字体与排版。字体、字号和中文规则。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">基础</p>
+        <h1 class="q-title">字体与排版</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>这套系统以中文为主，同时照顾中英文混排。层级只靠字号、字重和灰度，所以每一档的取值都是定死的。</p>
+          <h2>字体</h2>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">Inter</span>
+              <span class="q-row-meta">西文和数字</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">苹方</span>
+              <span class="q-row-meta">中文，苹果设备自带</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">思源黑体</span>
+              <span class="q-row-meta">中文，其他设备按需下载</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">系统等宽</span>
+              <span class="q-row-meta">日期、数字和代码</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <ul>
+            <li><strong>Inter 排在最前。</strong>这样西文和数字用 Inter，汉字自动落到后面的中文字体上。顺序反过来，英文会用中文字体自带的西文字形，粗细和间距都对不上。</li>
+            <li><strong>为什么要加载思源黑体。</strong>这套设计靠 400 和 500 两档字重区分附注和主文字。Windows 自带的微软雅黑没有 500，两者会一样粗。</li>
+            <li><strong>不让浏览器伪造粗体。</strong>苹方没有 700，标题会用它最粗的 600。</li>
+          </ul>
+          <h2>字号</h2>
+          <p>下面每一行都是用真实的类排出来的。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-section">
+            <span class="q-section-label">页面标题 · 30 → 36 → 40px · 粗体</span>
+            <div class="q-title">让团队安静地写长文</div>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">引言 · 24px · 中等 · 二级灰</span>
+            <p class="q-lead">潮池是给小团队用的写作工具。</p>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">列表行 · 20px · 主文字中等，附注常规</span>
+            <div class="q-row">
+              <span class="q-row-main">
+                <span class="q-row-title">团队版</span>
+                <span class="q-row-meta">每人每月</span>
+              </span>
+              <span class="q-row-date">¥48</span>
+            </div>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">小标题 · 20px · 粗体</span>
+            <div class="q-prose"><h3>留下了什么</h3></div>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">正文 · 18px · 常规 · 行高 1.75</span>
+            <div class="q-prose"><p>版面越朴素，字本身就越显眼，所以功夫都花在字上。</p></div>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">按钮和控件 · 16px · 中等</span>
+            <div class="q-actions"><span class="q-button">查看价格</span></div>
+          </div>
+          <div class="q-section">
+            <span class="q-section-label">小字 · 14px</span>
+            <span class="q-field-hint">用于登录和接收每周摘要。</span>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <ul>
+            <li><strong>分组标签比它下面的内容更小、更淡。</strong>标签是 16px 的浅灰，内容是 20px 的深色。标签不加粗。</li>
+            <li><strong>字重只有三档</strong>：400 用于附注，500 用于主文字和按钮，700 用于标题。600 只在导航里用。</li>
+            <li><strong>内容用大字，操作用小字。</strong>读的东西是 18 到 20px，点的东西是 16px。</li>
+            <li><strong>等宽日期是 19px。</strong>等宽字体看起来偏大，小 1px 才和旁边的字对齐。</li>
+            <li><strong>单行文字的行高都是 1.6。</strong>会换行的文字另有取值：正文 1.75，引言 1.5，标题 1.3。</li>
+          </ul>
+          <h2>中文和英文的取值不同</h2>
+          <p>汉字占满整个字框，同样的参数下比英文显得挤。给元素加上 <code>lang=&quot;en&quot;</code>，它和它的子元素会自动换成右边一列的取值。</p>
+        </div>
+
+        <div class="q-table-wrap">
+          <table class="q-table">
+            <thead>
+              <tr><th>项目</th><th class="q-num">中文</th><th class="q-num">英文</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>正文行高</td><td class="q-num">1.75</td><td class="q-num q-muted">1.6</td></tr>
+              <tr><td>引言行高</td><td class="q-num">1.5</td><td class="q-num q-muted">1.33</td></tr>
+              <tr><td>标题行高</td><td class="q-num">1.3</td><td class="q-num q-muted">1.2</td></tr>
+              <tr><td>标题字距</td><td class="q-num">0</td><td class="q-num q-muted">-0.64px</td></tr>
+              <tr><td>段落间距</td><td class="q-num">20px</td><td class="q-num q-muted">16px</td></tr>
+              <tr><td>链接下划线偏移</td><td class="q-num">4px</td><td class="q-num q-muted">2px</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="q-prose">
+          <p>另外，中文的强调（<code>&lt;em&gt;</code>）用中等字重，不倾斜。中文没有斜体，硬倾斜很难看。</p>
+          <h2>书写约定</h2>
+          <ul>
+            <li>中英文、中文和数字之间加一个空格，比如「共 12 期」。</li>
+            <li>引号用直角引号「」。弯引号会用 Inter 的半宽字形，显得偏窄。</li>
+            <li>日期用数字格式，比如 <code>2026.05</code>、<code>2022–25</code>，放在等宽的日期位置才能对齐成一列。</li>
+            <li>分组标签和按钮文字用两到四个字，不加标点。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="layout.html">
+              <span class="q-row-title">间距与布局</span>
+              <span class="q-row-meta">间距、栏宽和断点</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="pages.html">
+              <span class="q-row-title">五种页面</span>
+              <span class="q-row-meta">每种页面从上到下的顺序</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

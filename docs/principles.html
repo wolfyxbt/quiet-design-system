@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>设计原则 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：设计原则。六条原则和适用范围。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">开始</p>
+        <h1 class="q-title">设计原则</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>一句话概括：<strong>一栏文字，四级灰度，三种字重。</strong>没有卡片、没有边框、没有底色块，层级全靠字号、字重和灰度的深浅来表达。</p>
+          <h2>六条原则</h2>
+          <h3>排版就是界面</h3>
+          <p>页面上几乎只有文字。不用卡片、分割线、图标来装饰信息，先问能不能只靠字号、字重、灰度解决。</p>
+          <h3>黑白灰为主，颜色是例外</h3>
+          <p>文字只有四级灰度，按钮也只用黑白灰。品牌色全页最多出现一次，是一条 20×4px 的短线。状态色只出现在 8px 的圆点、错误提示和危险操作的文字上。</p>
+          <h3>列表是主角</h3>
+          <p>经历、功能、价格、文章、设置项，一切成组的内容都排成同一种列表行：深色的主文字，灰色的附注，右对齐的等宽数字。表格是把列对齐了的列表。</p>
+          <h3>留白要大方</h3>
+          <p>区块之间 64px，页面上下 64 到 128px。内容越少，留白越多。</p>
+          <h3>交互要轻</h3>
+          <p>悬停时只给主文字加下划线，不变色、不加底色、不位移。一个页面最多一个实心的主按钮，其他按钮是白色的小胶囊或者只有文字。</p>
+          <h3>单栏，窄宽度</h3>
+          <p>内容永远是居中的一栏，最宽 768px。不做多栏布局，不做侧边栏。做应用时也一样：导航收进左上角的菜单，内容多了就另开一页。</p>
+          <h2>适合做什么</h2>
+          <p>这是一种通用的网页风格，不限定用途。下面这些都用同一套规则来做，每一种都有<a href="../">示例</a>：</p>
+          <ul>
+            <li>个人主页、作品集、关于页</li>
+            <li>产品官网、价格页</li>
+            <li>文档、博客、帮助中心、更新日志</li>
+            <li>应用里的列表页、详情页、设置页、注册和登录</li>
+          </ul>
+          <h2>不适合做什么</h2>
+          <p>必须铺满屏幕的界面不适合：十几列的数据表格、看板、画布、地图、聊天窗口。遇到这类需求，要么把内容拆成几个页面，要么换一套设计。</p>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="rules.html">
+              <span class="q-row-title">该做与不该做</span>
+              <span class="q-row-meta">拼页面时的检查清单</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="color.html">
+              <span class="q-row-title">颜色</span>
+              <span class="q-row-meta">灰度、背景和状态色</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

@@ -4,17 +4,17 @@
 
 它不限定用途。个人主页、产品官网、文档和博客、应用里的列表页和设置页，都用同一套规则来做。它不适合必须铺满屏幕的界面，比如十几列的数据表格、看板和画布。
 
-**在线示例：<https://wolfyxbt.github.io/quiet-design-system/>**
+**在线文档：<https://wolfyxbt.github.io/quiet-design-system/>**
 
-| 示例 | 页面类型 | 里面有什么 |
-| --- | --- | --- |
-| [首页](https://wolfyxbt.github.io/quiet-design-system/) | 介绍页 | 引言、图标链接、列表 |
-| [个人主页](https://wolfyxbt.github.io/quiet-design-system/examples/personal.html) | 介绍页 | 头像、引言、经历和文章 |
-| [产品首页](https://wolfyxbt.github.io/quiet-design-system/examples/product.html) | 介绍页 | 标题、按钮、功能、价格、常见问题、页脚 |
-| [应用列表](https://wolfyxbt.github.io/quiet-design-system/examples/app.html) | 应用页 | 主按钮、标签页、数据概览、搜索、表格、对话框 |
-| [设置页](https://wolfyxbt.github.io/quiet-design-system/examples/settings.html) | 表单页 | 输入框、下拉框、开关、单选、危险操作确认 |
-| [文章列表](https://wolfyxbt.github.io/quiet-design-system/writing/) | 列表页 | 按年份分组的列表 |
-| [文章](https://wolfyxbt.github.io/quiet-design-system/writing/keep-it-small.html) | 文章页 | 长文排版、延伸阅读 |
+这个网站是 Quiet 的完整说明，本身也是用 Quiet 做的：
+
+| 部分 | 内容 |
+| --- | --- |
+| [开始](https://wolfyxbt.github.io/quiet-design-system/docs/start.html) | 开始使用、设计原则、该做与不该做 |
+| [基础](https://wolfyxbt.github.io/quiet-design-system/docs/color.html) | 颜色、字体与排版、间距与布局、五种页面 |
+| [组件](https://wolfyxbt.github.io/quiet-design-system/docs/list.html) | 顶栏与导航、容器与分组、列表、引言与正文、按钮、表单、数据、提示与对话框、分隔与页脚。每个组件都有真实效果和代码 |
+| [示例](https://wolfyxbt.github.io/quiet-design-system/examples/app.html) | 四个完整的页面：个人主页、产品首页、应用列表、设置页 |
+| [文章](https://wolfyxbt.github.io/quiet-design-system/writing/) | 三篇讲这套设计为什么这样做的短文 |
 
 风格最初提炼自 [brianlovin.com](https://brianlovin.com/about)，之后针对中文重新调整了字体、行高和间距，并按同样的规律补上了按钮、表单、表格这些做应用需要的组件。本仓库只包含从公开页面归纳出的设计规律（色值、字号、间距、组件结构），不包含原站点的任何文字、图片或代码，与原作者没有关联。
 
@@ -26,10 +26,11 @@
 | [tokens.css](tokens.css) | 全部设计变量（CSS 自定义属性），含深色模式 |
 | [components.css](components.css) | 基础样式和组件类，类名以 `q-` 开头 |
 | [tailwind-theme.css](tailwind-theme.css) | Tailwind CSS v4 主题，把变量映射成工具类 |
-| [index.html](index.html) | 示例网站的首页，也是在线示例的入口 |
+| [index.html](index.html) | 文档网站的首页 |
+| [docs/](docs/) | 文档页：开始、基础、组件，共十六篇 |
 | [examples/](examples/) | 四个示例页面：个人主页、产品首页、应用列表、设置页 |
-| [writing/](writing/) | 文章列表和三篇讲这套设计的文章 |
-| [site.js](site.js)、[examples/examples.js](examples/examples.js) | 示例网站用的一点脚本：开关导航、切换深浅色、筛选和对话框。不属于设计系统 |
+| [writing/](writing/) | 三篇讲这套设计的文章 |
+| [site.js](site.js)、[docs/docs.js](docs/docs.js)、[examples/examples.js](examples/examples.js) | 网站用的一点脚本：开关导航、切换深浅色、筛选和对话框。不属于设计系统 |
 
 ## 怎么用
 

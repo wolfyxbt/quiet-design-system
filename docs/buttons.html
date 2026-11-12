@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>按钮 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：按钮。按钮、小胶囊和图标按钮。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">按钮</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>页面上能按的东西有四种：按钮、小胶囊、图标按钮和图标链接。它们都只用黑白灰。</p>
+          <h2>按钮 <code>.q-button</code></h2>
+          <p>36px 高、全圆角、16px 中等字重。<code>&lt;a&gt;</code> 和 <code>&lt;button&gt;</code> 都能用。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-actions">
+            <a class="q-button q-button--primary" href="../examples/app.html">免费开始</a>
+            <a class="q-button" href="../examples/product.html">查看价格</a>
+            <button class="q-button q-button--ghost" type="button">取消</button>
+            <button class="q-button q-button--danger" type="button">删除</button>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-actions&quot;&gt;
+  &lt;a class=&quot;q-button q-button--primary&quot; href=&quot;../examples/app.html&quot;&gt;免费开始&lt;/a&gt;
+  &lt;a class=&quot;q-button&quot; href=&quot;../examples/product.html&quot;&gt;查看价格&lt;/a&gt;
+  &lt;button class=&quot;q-button q-button--ghost&quot; type=&quot;button&quot;&gt;取消&lt;/button&gt;
+  &lt;button class=&quot;q-button q-button--danger&quot; type=&quot;button&quot;&gt;删除&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">默认</span>
+              <span class="q-row-meta">白底，细描边，轻投影。大部分按钮都是它</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">主按钮</span>
+              <span class="q-row-meta">实心。一个页面最多一个</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">幽灵按钮</span>
+              <span class="q-row-meta">只有灰色文字，用于「取消」</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">危险按钮</span>
+              <span class="q-row-meta">默认按钮，文字变红</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <ul>
+            <li>一个页面最多一个主按钮。这一页为了展示放了一个，真实页面里它应该是页面上最重要的那个操作。</li>
+            <li>不做彩色的实心按钮。删除这类操作只把文字变红。</li>
+            <li>按钮文字两到四个字，动词开头。</li>
+            <li>几个按钮用 <code>.q-actions</code> 排成一排，相距 8px。</li>
+          </ul>
+          <h3>禁用</h3>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-actions">
+            <button class="q-button q-button--primary" type="button" disabled>保存修改</button>
+            <button class="q-button" type="button" disabled>导出</button>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-actions&quot;&gt;
+  &lt;button class=&quot;q-button q-button--primary&quot; type=&quot;button&quot; disabled&gt;保存修改&lt;/button&gt;
+  &lt;button class=&quot;q-button&quot; type=&quot;button&quot; disabled&gt;导出&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          <h2>小胶囊 <code>.q-pill</code></h2>
+          <p>小一号的默认按钮：28px 高、14px 字、浅灰色文字。用于贴着内容的小操作，比如点赞数、计数、翻页。不拿它当页面上的主要按钮。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-actions">
+            <button class="q-pill" type="button">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M6 10.5S1.5 7.9 1.5 4.7A2.4 2.4 0 0 1 6 3.6a2.4 2.4 0 0 1 4.5 1.1c0 3.2-4.5 5.8-4.5 5.8Z" /></svg>
+              128
+            </button>
+            <button class="q-pill" type="button">上一页</button>
+            <button class="q-pill" type="button">下一页</button>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-actions&quot;&gt;
+  &lt;button class=&quot;q-pill&quot; type=&quot;button&quot;&gt;
+    &lt;svg&gt;…&lt;/svg&gt;
+    128
+  &lt;/button&gt;
+  &lt;button class=&quot;q-pill&quot; type=&quot;button&quot;&gt;上一页&lt;/button&gt;
+  &lt;button class=&quot;q-pill&quot; type=&quot;button&quot;&gt;下一页&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          <h2>图标按钮 <code>.q-icon-button</code></h2>
+          <p>36px 的圆，平时完全透明，悬停才出现一层很淡的底色。用在顶栏里。一定要写 <code>aria-label</code>。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-actions">
+            <button class="q-icon-button" type="button" aria-label="菜单">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+            </button>
+            <button class="q-icon-button" type="button" aria-label="切换深浅色">
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;div class=&quot;q-actions&quot;&gt;
+  &lt;button class=&quot;q-icon-button&quot; type=&quot;button&quot; aria-label=&quot;菜单&quot;&gt;
+    &lt;svg&gt;…&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;q-icon-button&quot; type=&quot;button&quot; aria-label=&quot;切换深浅色&quot;&gt;
+    &lt;svg&gt;…&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          <h2>图标链接 <code>.q-icon-links</code></h2>
+          <p>一排 28px 的线性图标，最浅的灰，悬停变成主色。用在介绍页的引言下面，放社交账号、源码、下载这类链接。第一个图标向左偏 8px，让图形和上方的文字左对齐。</p>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-icon-links">
+            <li>
+              <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system" aria-label="源码">
+                <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 9-5 5 5 5M18 9l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md" aria-label="设计规范">
+                <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4.5h8.5L21 9v14.5H8z" /><path d="M11.5 13.5h6M11.5 18h6" /></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-icon-links&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-icon-link&quot; href=&quot;https://github.com/wolfyxbt/quiet-design-system&quot; aria-label=&quot;源码&quot;&gt;
+      &lt;svg&gt;…&lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-icon-link&quot; href=&quot;https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md&quot; aria-label=&quot;设计规范&quot;&gt;
+      &lt;svg&gt;…&lt;/svg&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="forms.html">
+              <span class="q-row-title">表单</span>
+              <span class="q-row-meta">输入框、选择和开关</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="data.html">
+              <span class="q-row-title">数据</span>
+              <span class="q-row-meta">标签页、概览、表格和状态</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

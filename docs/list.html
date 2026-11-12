@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>列表 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：列表。这套设计的核心组件。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">列表</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>成组的内容都先试着排成列表。一行由几种零件自由组合，桌面上排成一行，手机上折成上下几行。</p>
+          <h2>零件</h2>
+        </div>
+
+        <ul class="q-list">
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-icon</span>
+              <span class="q-row-meta">20px 的小图标，可选</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-title</span>
+              <span class="q-row-meta">主文字，中等字重</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-meta</span>
+              <span class="q-row-meta">附注，最浅的灰</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-date</span>
+              <span class="q-row-meta">等宽的日期、价格或数字，靠右</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-glyph</span>
+              <span class="q-row-meta">外链箭头之类的小符号</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-main</span>
+              <span class="q-row-meta">包住主文字和附注，手机上保持并排</span>
+            </div>
+          </li>
+          <li>
+            <div class="q-row">
+              <span class="q-row-title">.q-row-end</span>
+              <span class="q-row-meta">行尾的控件，靠右</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="q-prose">
+          <h2>名称和一句话描述</h2>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-list">
+            <li>
+              <a class="q-row" href="../examples/product.html">
+                <span class="q-row-title">产品首页</span>
+                <span class="q-row-meta">介绍、功能、价格和常见问题</span>
+              </a>
+            </li>
+            <li>
+              <a class="q-row" href="../examples/app.html">
+                <span class="q-row-title">应用列表</span>
+                <span class="q-row-meta">标签页、数据概览和表格</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-list&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-row&quot; href=&quot;../examples/product.html&quot;&gt;
+      &lt;span class=&quot;q-row-title&quot;&gt;产品首页&lt;/span&gt;
+      &lt;span class=&quot;q-row-meta&quot;&gt;介绍、功能、价格和常见问题&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-row&quot; href=&quot;../examples/app.html&quot;&gt;
+      &lt;span class=&quot;q-row-title&quot;&gt;应用列表&lt;/span&gt;
+      &lt;span class=&quot;q-row-meta&quot;&gt;标签页、数据概览和表格&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <p>悬停时只有主文字多出一条下划线。</p>
+          <h2>长标题和日期</h2>
+          <p>给标题加 <code>.q-row-title--fill</code>，让它占满剩余宽度，把日期推到最右。</p>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-list">
+            <li>
+              <a class="q-row" href="../writing/keep-it-small.html">
+                <span class="q-row-title q-row-title--fill">让小网站一直小下去</span>
+                <span class="q-row-date">2026.01</span>
+              </a>
+            </li>
+            <li>
+              <a class="q-row" href="../writing/four-grays.html">
+                <span class="q-row-title q-row-title--fill">四级灰度就够了</span>
+                <span class="q-row-date">2025.11</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-list&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-row&quot; href=&quot;../writing/keep-it-small.html&quot;&gt;
+      &lt;span class=&quot;q-row-title q-row-title--fill&quot;&gt;让小网站一直小下去&lt;/span&gt;
+      &lt;span class=&quot;q-row-date&quot;&gt;2026.01&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-row&quot; href=&quot;../writing/four-grays.html&quot;&gt;
+      &lt;span class=&quot;q-row-title q-row-title--fill&quot;&gt;四级灰度就够了&lt;/span&gt;
+      &lt;span class=&quot;q-row-date&quot;&gt;2025.11&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <h2>图标、名称、角色和时间</h2>
+          <p>图标可以是 <code>&lt;img&gt;</code>、<code>&lt;svg&gt;</code>，也可以是一个色块。</p>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-list">
+            <li>
+              <div class="q-row">
+                <span class="q-swatch q-row-icon" style="--swatch: var(--text-primary)"></span>
+                <span class="q-row-main">
+                  <span class="q-row-title">Fieldnote</span>
+                  <span class="q-row-meta">产品设计师</span>
+                </span>
+                <span class="q-row-date">至今</span>
+              </div>
+            </li>
+            <li>
+              <div class="q-row">
+                <span class="q-swatch q-row-icon" style="--swatch: var(--brand)"></span>
+                <span class="q-row-main">
+                  <span class="q-row-title">潮池</span>
+                  <span class="q-row-meta">联合创始人</span>
+                </span>
+                <span class="q-row-date">2022–25</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-list&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;q-row&quot;&gt;
+      &lt;span class=&quot;q-swatch q-row-icon&quot; style=&quot;--swatch: var(--text-primary)&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;q-row-main&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;Fieldnote&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;产品设计师&lt;/span&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;q-row-date&quot;&gt;至今&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;q-row&quot;&gt;
+      &lt;span class=&quot;q-swatch q-row-icon&quot; style=&quot;--swatch: var(--brand)&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;q-row-main&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;潮池&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;联合创始人&lt;/span&gt;
+      &lt;/span&gt;
+      &lt;span class=&quot;q-row-date&quot;&gt;2022–25&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <h2>外链</h2>
+          <p>在主文字后面放一个 14px 的箭头，表示会离开当前网站。</p>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-list">
+            <li>
+              <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system">
+                <span class="q-row-title">源码</span>
+                <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span class="q-row-meta">GitHub 仓库</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-list&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;q-row&quot; href=&quot;https://github.com/wolfyxbt/quiet-design-system&quot;&gt;
+      &lt;span class=&quot;q-row-title&quot;&gt;源码&lt;/span&gt;
+      &lt;svg&gt;…&lt;/svg&gt;
+      &lt;span class=&quot;q-row-meta&quot;&gt;GitHub 仓库&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <h2>不是链接的行</h2>
+          <p>没有目标页面的行用 <code>&lt;div class=&quot;q-row&quot;&gt;</code>。样子一样，只是悬停时不出现下划线。上面「图标、名称、角色和时间」里的两行就是这样。</p>
+          <h2>行尾带控件</h2>
+          <p>设置项这类行，把开关放在行尾。加上 <code>.q-row--inline</code>，手机上也保持一行。</p>
+        </div>
+
+        <div class="q-demo">
+          <ul class="q-list">
+            <li>
+              <label class="q-row q-row--inline">
+                <span class="q-row-main">
+                  <span class="q-row-title">每周摘要</span>
+                  <span class="q-row-meta">周一早上的一封邮件</span>
+                </span>
+                <input class="q-switch q-row-end" type="checkbox" checked />
+              </label>
+            </li>
+            <li>
+              <label class="q-row q-row--inline">
+                <span class="q-row-main">
+                  <span class="q-row-title">产品动态</span>
+                  <span class="q-row-meta">有新功能时通知我</span>
+                </span>
+                <input class="q-switch q-row-end" type="checkbox" />
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;ul class=&quot;q-list&quot;&gt;
+  &lt;li&gt;
+    &lt;label class=&quot;q-row q-row--inline&quot;&gt;
+      &lt;span class=&quot;q-row-main&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;每周摘要&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;周一早上的一封邮件&lt;/span&gt;
+      &lt;/span&gt;
+      &lt;input class=&quot;q-switch q-row-end&quot; type=&quot;checkbox&quot; checked /&gt;
+    &lt;/label&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;label class=&quot;q-row q-row--inline&quot;&gt;
+      &lt;span class=&quot;q-row-main&quot;&gt;
+        &lt;span class=&quot;q-row-title&quot;&gt;产品动态&lt;/span&gt;
+        &lt;span class=&quot;q-row-meta&quot;&gt;有新功能时通知我&lt;/span&gt;
+      &lt;/span&gt;
+      &lt;input class=&quot;q-switch q-row-end&quot; type=&quot;checkbox&quot; /&gt;
+    &lt;/label&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          <h2>行距</h2>
+          <ul>
+            <li>桌面端行与行相距 6px。</li>
+            <li>手机上每行的零件上下堆叠，行距放大到 16px，带图标时是 32px。</li>
+            <li>桌面端主文字超长时截断成一行。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="text.html">
+              <span class="q-row-title">引言与正文</span>
+              <span class="q-row-meta">引言、链接和长文</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="buttons.html">
+              <span class="q-row-title">按钮</span>
+              <span class="q-row-meta">按钮、小胶囊和图标按钮</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

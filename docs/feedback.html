@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>提示与对话框 · Quiet Design System</title>
+    <meta name="description" content="Quiet Design System 文档：提示与对话框。说明和确认。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../tokens.css" />
+    <link rel="stylesheet" href="../components.css" />
+    <script src="../site.js"></script>
+    <script src="docs.js" defer></script>
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="q-topbar">
+      <button class="q-icon-button" id="menu" aria-label="菜单" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+      </button>
+      <a href="../">Quiet</a>
+      <span class="q-topbar-sep">/</span>
+      <a href="./">文档</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" /></svg>
+      </button>
+    </header>
+
+    <!-- 全屏导航 -->
+    <nav class="q-nav" id="nav" hidden>
+      <div class="q-nav-group">
+        <a class="q-nav-link" href="../">首页</a>
+        <a class="q-nav-link" href="../docs/" aria-current="page">文档</a>
+        <a class="q-nav-link" href="../writing/">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
+      </div>
+    </nav>
+
+    <!-- 文章页：768px 宽。正文由交替出现的文字（.q-prose）和示例框（.q-demo）组成 -->
+    <article class="q-page q-page--article">
+      <div class="q-stack q-stack--loose">
+        <p class="q-meta">组件</p>
+        <h1 class="q-title">提示与对话框</h1>
+      </div>
+
+      <div class="q-stack">
+        <div class="q-prose">
+          <p>需要打断一下读者的时候用这两样东西。能不用就不用。</p>
+          <h2>提示 <code>.q-note</code></h2>
+          <p>和引用块同一种做法：左边一条 3px 的细线，16px 的三级灰文字。没有底色和图标。</p>
+        </div>
+
+        <div class="q-demo">
+          <p class="q-note">导出的文件里不包含评论。</p>
+          <p class="q-note q-note--danger">删除工作区后，里面的文档和评论都会被永久删除，无法恢复。</p>
+        </div>
+
+        <div class="q-prose">
+          <pre><code>&lt;p class=&quot;q-note&quot;&gt;导出的文件里不包含评论。&lt;/p&gt;
+&lt;p class=&quot;q-note q-note--danger&quot;&gt;删除工作区后，里面的文档和评论都会被永久删除，无法恢复。&lt;/p&gt;</code></pre>
+          <p><code>.q-note--danger</code> 把细线换成红色，用在危险操作的说明上。</p>
+          <h2>对话框 <code>.q-dialog</code></h2>
+          <p>用浏览器自带的 <code>&lt;dialog&gt;</code>，调用 <code>showModal()</code> 打开。最宽 448px，8px 圆角，和按钮一样的细描边。后面的页面盖上一层半透明的页面底色，浅色下是白，深色下是黑，不用黑色遮罩。</p>
+        </div>
+
+        <div class="q-demo">
+          <div class="q-actions">
+            <button class="q-button q-button--danger" type="button" data-open="demo-dialog">删除工作区</button>
+          </div>
+        </div>
+
+        <dialog class="q-dialog" id="demo-dialog" aria-labelledby="demo-dialog-title">
+          <form method="dialog">
+            <h2 class="q-dialog-title" id="demo-dialog-title">删除工作区？</h2>
+            <p class="q-dialog-body">里面的 8 篇文档会被永久删除。这是示例，点了也不会真的删除。</p>
+            <div class="q-actions">
+              <button class="q-button q-button--ghost" type="submit">取消</button>
+              <button class="q-button q-button--danger" type="submit">删除</button>
+            </div>
+          </form>
+        </dialog>
+
+        <div class="q-prose">
+          <pre><code>&lt;dialog class=&quot;q-dialog&quot; id=&quot;confirm&quot;&gt;
+  &lt;form method=&quot;dialog&quot;&gt;
+    &lt;h2 class=&quot;q-dialog-title&quot;&gt;删除工作区？&lt;/h2&gt;
+    &lt;p class=&quot;q-dialog-body&quot;&gt;里面的 8 篇文档会被永久删除。&lt;/p&gt;
+    &lt;div class=&quot;q-actions&quot;&gt;
+      &lt;button class=&quot;q-button q-button--ghost&quot; type=&quot;submit&quot;&gt;取消&lt;/button&gt;
+      &lt;button class=&quot;q-button q-button--danger&quot; type=&quot;submit&quot;&gt;删除&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/dialog&gt;
+
+&lt;script&gt;
+  document.getElementById(&quot;confirm&quot;).showModal();
+&lt;/script&gt;</code></pre>
+          <ul>
+            <li>按钮靠右：退出的操作用幽灵按钮放在左边，确认的操作放在右边。</li>
+            <li>只用来确认操作，或者填一两个字段。字段多了就做成表单页。</li>
+            <li>标题是一个问句或一个动作，正文说清楚后果。</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <div class="q-hatch"></div>
+
+    <div class="q-page q-page--article">
+      <section class="q-section">
+        <div class="q-tick"></div>
+        <h2 class="q-section-label">接着读</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="dividers.html">
+              <span class="q-row-title">分隔与页脚</span>
+              <span class="q-row-meta">斜纹带、短线和页脚</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="start.html">
+              <span class="q-row-title">开始使用</span>
+              <span class="q-row-meta">引入文件、字体和深色模式</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="./">
+              <span class="q-row-title">全部文档</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
