@@ -79,7 +79,7 @@
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: var(--text-quaternary);
-  text-underline-offset: 2px;
+  text-underline-offset: var(--underline-offset);
   word-break: break-word;
 
   &:hover {

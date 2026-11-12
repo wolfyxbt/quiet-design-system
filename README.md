@@ -2,7 +2,7 @@
 
 一套安静的、以排版为主的单栏设计语言：一栏文字，四级灰度，三种字重。以中文为主，同时支持中英文混排和纯英文页面。适合个人主页、博客、作品集、文档这类以阅读为主的网站。
 
-**在线示例：<https://wolfyxbt.github.io/quiet-design-system/>**
+**在线示例：<https://wolfyxbt.github.io/quiet-design-system/>**（一个小网站，首页、文章列表、文章页三种页面都有）
 
 风格提炼自 [brianlovin.com](https://brianlovin.com/about)，并针对中文重新调整了字体、行高和间距。本仓库只包含从公开页面归纳出的设计规律（色值、字号、间距、组件结构），不包含原站点的任何文字、图片或代码，与原作者没有关联。
 
@@ -14,7 +14,9 @@
 | [tokens.css](tokens.css) | 全部设计变量（CSS 自定义属性），含深色模式 |
 | [components.css](components.css) | 基础样式和组件类，类名以 `q-` 开头 |
 | [tailwind-theme.css](tailwind-theme.css) | Tailwind CSS v4 主题，把变量映射成工具类 |
-| [index.html](index.html) | 示例页面，展示所有组件，也是在线示例的源文件 |
+| [index.html](index.html) | 示例网站的首页（封面页），也是在线示例的入口 |
+| [writing/](writing/) | 示例网站的文章列表（索引页）和三篇文章（文章页） |
+| [site.js](site.js) | 示例网站用的一点脚本：开关导航、切换深浅色。不属于设计系统 |
 
 ## 怎么用
 

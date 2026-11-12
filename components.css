@@ -82,6 +82,11 @@ a {
   user-select: none;
 }
 
+/* 把它后面的东西推到顶栏最右（比如一个图标按钮） */
+.q-topbar-end {
+  margin-left: auto;
+}
+
 /* 圆形图标按钮：平时完全透明，悬停才出现底色 */
 .q-icon-button {
   display: inline-flex;
@@ -195,6 +200,13 @@ a {
 @media (min-width: 1024px) {
   .q-page--article {
     padding: var(--space-16) var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .q-page--article {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-20);
   }
 }
 
@@ -359,8 +371,8 @@ a {
 }
 
 @media (hover: hover) {
-  /* 悬停只给主文字加下划线，不变色、不加底色 */
-  .q-row:hover .q-row-title {
+  /* 悬停只给主文字加下划线，不变色、不加底色。不是链接的行（<div class="q-row">）没有悬停效果 */
+  a.q-row:hover .q-row-title {
     text-decoration-line: underline;
   }
 }
@@ -613,6 +625,11 @@ a {
   height: 4px;
   border-radius: var(--radius-full);
   background: var(--brand);
+}
+
+/* 短线下面的标签比普通分组标签深一级 */
+.q-tick + .q-section-label {
+  color: var(--text-tertiary);
 }
 
 /* =========================================================

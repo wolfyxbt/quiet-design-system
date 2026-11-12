@@ -4,15 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiet Design System</title>
-    <meta name="description" content="一套安静的、以排版为主的中文设计系统：一栏文字，四级灰度，三种字重。" />
+    <meta name="description" content="一套安静的、以排版为主的中文设计系统：一栏文字，四级灰度，三种字重。这是它的示例网站。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="components.css" />
+    <script src="site.js"></script>
   </head>
   <body>
     <!-- 顶栏 -->
@@ -22,27 +20,31 @@
           <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
       </button>
-      <a href="#">你的名字</a>
+      <a href="./">你的名字</a>
       <span class="q-topbar-sep">/</span>
-      <a href="#">关于</a>
+      <a href="./">关于</a>
+      <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <circle cx="9" cy="9" r="6.1" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M9 2.9a6.1 6.1 0 0 1 0 12.2z" fill="currentColor" />
+        </svg>
+      </button>
     </header>
 
     <!-- 全屏导航 -->
     <nav class="q-nav" id="nav" hidden>
       <div class="q-nav-group">
-        <a class="q-nav-link" href="#">首页</a>
-        <a class="q-nav-link" href="#" aria-current="page">关于</a>
-        <a class="q-nav-link" href="#">文章</a>
+        <a class="q-nav-link" href="./" aria-current="page">关于</a>
+        <a class="q-nav-link" href="writing/">文章</a>
       </div>
       <div class="q-nav-group">
-        <span class="q-nav-label">项目</span>
-        <a class="q-nav-link" href="#">书单</a>
-        <a class="q-nav-link" href="#">工具箱</a>
-        <a class="q-nav-link" href="#">笔记</a>
+        <span class="q-nav-label">设计系统</span>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system">源码</a>
+        <a class="q-nav-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">设计规范</a>
       </div>
     </nav>
 
-    <!-- 个人主页 -->
+    <!-- 封面页：672px 宽，上下留白加倍 -->
     <main class="q-page q-page--airy">
       <div class="q-stack">
         <h1 class="q-sr-only">关于</h1>
@@ -57,71 +59,95 @@
         </svg>
         <p class="q-lead">我是一名产品设计师，住在海边。</p>
         <p class="q-lead">
-          目前在 <a class="q-link" href="#">Fieldnote</a> 做面向小团队的工具。在此之前，我和朋友一起创办了<a class="q-link" href="#">潮池</a>，一个让团队安静写长文的地方。
+          目前在 Fieldnote 做面向小团队的工具。在此之前，我和朋友一起创办了潮池，一个让团队安静写长文的地方。
         </p>
         <p class="q-lead">
-          这些年我还主持过一档聊设计的<a class="q-link" href="#">播客</a>，并且一直在公开的<a class="q-link" href="#">笔记本</a>里记录学到的东西。
+          这个网站是 <a class="q-link" href="https://github.com/wolfyxbt/quiet-design-system">Quiet Design System</a> 的示例。人和公司都是虚构的，<a class="q-link" href="writing/">文章</a>讲的是这套设计本身。
         </p>
       </div>
 
       <ul class="q-icon-links">
         <li>
-          <a class="q-icon-link" href="#" aria-label="邮箱">
-            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="4" y="7" width="20" height="14" rx="3" />
-              <path d="m5 9 9 7 9-7" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a class="q-icon-link" href="#" aria-label="订阅">
-            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <path d="M6 13a9 9 0 0 1 9 9M6 6a16 16 0 0 1 16 16" />
-              <circle cx="7" cy="21" r="1.5" fill="currentColor" stroke="none" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a class="q-icon-link" href="#" aria-label="代码">
+          <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system" aria-label="源码">
             <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m10 9-5 5 5 5M18 9l5 5-5 5" />
             </svg>
           </a>
         </li>
+        <li>
+          <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md" aria-label="设计规范">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 4.5h8.5L21 9v14.5H8z" />
+              <path d="M11.5 13.5h6M11.5 18h6" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="q-icon-link" href="https://github.com/wolfyxbt/quiet-design-system/archive/refs/heads/main.zip" aria-label="下载">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 5v12M9 12.5l5 5 5-5M6 22.5h16" />
+            </svg>
+          </a>
+        </li>
       </ul>
 
-      <!-- 列表：图标 + 名称 + 角色 + 时间 -->
+      <!-- 列表：图标 + 名称 + 角色 + 时间。这几行不是链接，所以用 div -->
       <section class="q-section">
         <h2 class="q-section-label">工作经历</h2>
         <ul class="q-list">
           <li>
-            <a class="q-row" href="#">
+            <div class="q-row">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="currentColor" /></svg>
               <span class="q-row-main">
                 <span class="q-row-title">Fieldnote</span>
                 <span class="q-row-meta">产品设计师</span>
               </span>
               <span class="q-row-date">至今</span>
-            </a>
+            </div>
           </li>
           <li>
-            <a class="q-row" href="#">
+            <div class="q-row">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#fc532a" /></svg>
               <span class="q-row-main">
                 <span class="q-row-title">潮池</span>
                 <span class="q-row-meta">联合创始人</span>
               </span>
               <span class="q-row-date">2022–25</span>
-            </a>
+            </div>
           </li>
           <li>
-            <a class="q-row" href="#">
+            <div class="q-row">
               <svg class="q-row-icon" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="4" fill="#737373" /></svg>
               <span class="q-row-main">
                 <span class="q-row-title">北风科技</span>
                 <span class="q-row-meta">产品设计师</span>
               </span>
               <span class="q-row-date">2018–22</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 列表：长标题 + 日期 -->
+      <section class="q-section">
+        <h2 class="q-section-label">文章</h2>
+        <ul class="q-list">
+          <li>
+            <a class="q-row" href="writing/keep-it-small.html">
+              <span class="q-row-title q-row-title--fill">让小网站一直小下去</span>
+              <span class="q-row-date">2026.01</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="writing/four-grays.html">
+              <span class="q-row-title q-row-title--fill">四级灰度就够了</span>
+              <span class="q-row-date">2025.11</span>
+            </a>
+          </li>
+          <li>
+            <a class="q-row" href="writing/one-column.html">
+              <span class="q-row-title q-row-title--fill">为什么只用一栏</span>
+              <span class="q-row-date">2025.06</span>
             </a>
           </li>
         </ul>
@@ -129,129 +155,31 @@
 
       <!-- 列表：名称 + 一句话描述 -->
       <section class="q-section">
-        <h2 class="q-section-label">项目</h2>
+        <h2 class="q-section-label">设计系统</h2>
         <ul class="q-list">
           <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title">书单</span>
-              <span class="q-row-meta">值得读第二遍的书</span>
+            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system">
+              <span class="q-row-title">源码</span>
+              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span class="q-row-meta">GitHub 仓库</span>
             </a>
           </li>
           <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title">工具箱</span>
-              <span class="q-row-meta">我常用的软件和工具</span>
+            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/DESIGN.md">
+              <span class="q-row-title">设计规范</span>
+              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span class="q-row-meta">颜色、字体和组件的说明</span>
             </a>
           </li>
           <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title">笔记</span>
-              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span class="q-row-meta">公开的笔记本</span>
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <!-- 列表：长标题 + 日期 -->
-      <section class="q-section">
-        <h2 class="q-section-label">演讲</h2>
-        <ul class="q-list">
-          <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">少一些零件的设计</span>
-              <span class="q-row-date">2026.05</span>
-            </a>
-          </li>
-          <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">两个人的公司教会我的事</span>
-              <span class="q-row-date">2025.11</span>
-            </a>
-          </li>
-          <li>
-            <a class="q-row" href="#">
-              <span class="q-row-title q-row-title--fill">Design Talk 第 12 期：无聊的日常</span>
-              <span class="q-row-date">2024.08</span>
+            <a class="q-row" href="https://github.com/wolfyxbt/quiet-design-system/blob/main/tokens.css">
+              <span class="q-row-title">变量</span>
+              <svg class="q-row-glyph" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span class="q-row-meta">全部设计变量，一个文件</span>
             </a>
           </li>
         </ul>
       </section>
     </main>
-
-    <div class="q-hatch"></div>
-
-    <!-- 文章页 -->
-    <article class="q-page q-page--article">
-      <div class="q-stack q-stack--loose">
-        <p class="q-meta">2026 年 1 月 19 日</p>
-        <h1 class="q-title">让小网站一直小下去</h1>
-        <div>
-          <button class="q-pill" type="button">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-              <path d="M6 10.5S1.5 7.9 1.5 4.7A2.4 2.4 0 0 1 6 3.6a2.4 2.4 0 0 1 4.5 1.1c0 3.2-4.5 5.8-4.5 5.8Z" />
-            </svg>
-            128
-          </button>
-        </div>
-      </div>
-
-      <div class="q-prose">
-        <p>
-          这个网站的每一页都只有一栏文字。没有卡片，没有边框，也没有底色块，层级全靠四级灰度和三种字重撑起来。
-        </p>
-        <p>
-          整套样式由一个文件 <code>tokens.css</code> 和一组以 <code>q-</code> 开头的类组成。中文用苹方和思源黑体，英文和数字用 Inter，<em>中英文混排</em>时粗细和大小都对得上。想看细节的话，<a href="#">源码是公开的</a>。
-        </p>
-        <h3>我去掉了什么</h3>
-        <ul>
-          <li>强调色，只留下一条 4px 高的短线。</li>
-          <li>悬停底色。列表行只给标题加下划线，别的什么都不变。</li>
-          <li>任何要靠阴影才能看懂的东西。</li>
-        </ul>
-        <blockquote>版面越朴素，对排版的要求就越高，所以功夫都花在字上。</blockquote>
-        <hr />
-        <p>整套系统就这么多，脑子里装得下，这正是它的目的。</p>
-      </div>
-    </article>
-
-    <div class="q-hatch"></div>
-
-    <div class="q-page q-page--article">
-      <section class="q-section">
-        <div class="q-tick"></div>
-        <h2 class="q-section-label">延伸阅读</h2>
-        <ul class="q-list">
-          <li><a class="q-row" href="#"><span class="q-row-title">四级灰度就够了</span></a></li>
-          <li><a class="q-row" href="#"><span class="q-row-title">等宽日期的小讲究</span></a></li>
-          <li><a class="q-row" href="#"><span class="q-row-title">为什么只用一栏</span></a></li>
-        </ul>
-      </section>
-
-      <!-- 仅用于演示，不属于设计系统 -->
-      <div style="display: flex; gap: 8px">
-        <button class="q-pill" type="button" id="theme">切换深浅色</button>
-        <a class="q-pill" href="https://github.com/wolfyxbt/quiet-design-system">在 GitHub 上查看</a>
-      </div>
-    </div>
-
-    <script>
-      const menu = document.getElementById("menu");
-      const nav = document.getElementById("nav");
-      menu.addEventListener("click", () => {
-        nav.hidden = !nav.hidden;
-        menu.setAttribute("aria-expanded", String(!nav.hidden));
-      });
-
-      document.getElementById("theme").addEventListener("click", () => {
-        const root = document.documentElement;
-        const dark =
-          root.dataset.theme === "dark" ||
-          (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
-        root.dataset.theme = dark ? "light" : "dark";
-      });
-    </script>
   </body>
 </html>
