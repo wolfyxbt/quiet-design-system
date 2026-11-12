@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>四级灰度就够了 · Quiet Design System</title>
-    <meta name="description" content="这个网站上所有的文字只用四种灰。" />
+    <meta name="description" content="这套设计里所有的文字只用四种灰。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -20,7 +20,7 @@
           <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
       </button>
-      <a href="../">你的名字</a>
+      <a href="../">Quiet</a>
       <span class="q-topbar-sep">/</span>
       <a href="./">文章</a>
       <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
@@ -34,8 +34,15 @@
     <!-- 全屏导航 -->
     <nav class="q-nav" id="nav" hidden>
       <div class="q-nav-group">
-        <a class="q-nav-link" href="../">关于</a>
+        <a class="q-nav-link" href="../">首页</a>
         <a class="q-nav-link" href="../writing/" aria-current="page">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
       </div>
       <div class="q-nav-group">
         <span class="q-nav-label">设计系统</span>
@@ -58,19 +65,22 @@
       </div>
 
       <div class="q-prose">
-        <p>这个网站上所有的文字只用四种灰。没有蓝色的链接，没有红色的提示，也没有用来「突出重点」的彩色。</p>
+        <p>这套设计里所有的文字只用四种灰。没有蓝色的链接，也没有用来「突出重点」的彩色。</p>
         <p>四级各有分工：</p>
         <ul>
           <li>第一级接近纯黑，用在标题、正文和列表的主文字上。</li>
           <li>第二级用在首页那几段大号的引言上。字号大了，颜色就要退一步。</li>
-          <li>第三级用在文章的日期和引用上。</li>
+          <li>第三级用在文章的日期、引用和提示上。</li>
           <li>第四级最浅，用在分组标签、列表附注和图标上。</li>
         </ul>
         <h3>为什么不多加几级</h3>
         <p>级数一多，相邻两级就分不清了。四级之间的差距足够大，读者不用比较就能看出哪个重要。真遇到四级不够用的时候，往往说明这一页上的东西太多，该做的是删内容。</p>
         <p>灰度之外还有字重可以用。同一行里，主文字用中等字重，附注用常规字重，再加上第一级和第四级的颜色差，一眼就能分开。</p>
-        <h3>链接怎么办</h3>
+        <h3>链接和按钮怎么办</h3>
         <p>正文里的链接不变色，只在下面加一条 2px 粗的浅灰下划线。列表里的链接连下划线都没有，鼠标移上去才出现。</p>
+        <p>按钮也只用黑白灰。一个页面最多有一个实心的主按钮，其他按钮都是白色的小胶囊。</p>
+        <h3>什么时候可以用颜色</h3>
+        <p>做应用的时候，状态和错误需要颜色。这里的规则是让颜色的面积尽量小：状态是文字前面一个 8px 的圆点，错误是输入框下面一行红色的小字。删除按钮只把文字变红，不做成红色的实心按钮。</p>
         <h3>深色模式</h3>
         <p>深色模式下，四级灰度换成白色的四种透明度：90%、70%、50% 和 32%。底色是纯黑。每一级的分工不变，所以切换之后层级关系也不变，可以点右上角的按钮试试。</p>
       </div>

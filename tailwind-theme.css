@@ -9,7 +9,9 @@
  *
  * 之后就能直接写：
  *   text-primary / text-secondary / text-tertiary / text-quaternary / text-brand
+ *   text-inverse / text-danger
  *   bg-page / bg-secondary / bg-tertiary / bg-quaternary / bg-elevated / bg-brand
+ *   bg-inverse / bg-danger / bg-success / bg-warning（后三个只用于状态圆点）
  *   border-primary / border-secondary
  *   max-w-measure / max-w-measure-narrow / max-w-measure-wide
  *   link-body / hatch / shadow-pill
@@ -29,6 +31,8 @@
   --text-color-quaternary: var(--text-quaternary);
   --text-color-label: var(--text-label);
   --text-color-brand: var(--brand);
+  --text-color-inverse: var(--text-inverse);
+  --text-color-danger: var(--danger);
 
   --background-color-page: var(--bg-page);
   --background-color-secondary: var(--bg-secondary);
@@ -37,6 +41,10 @@
   --background-color-elevated: var(--bg-elevated);
   --background-color-hover: var(--bg-hover);
   --background-color-brand: var(--brand);
+  --background-color-inverse: var(--bg-inverse);
+  --background-color-danger: var(--danger);
+  --background-color-success: var(--success);
+  --background-color-warning: var(--warning);
 
   --border-color-primary: var(--border-primary);
   --border-color-secondary: var(--border-secondary);

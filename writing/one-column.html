@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>为什么只用一栏 · Quiet Design System</title>
-    <meta name="description" content="这个网站没有侧边栏，没有并排的卡片，所有内容从上到下排成一栏。" />
+    <meta name="description" content="没有侧边栏，没有并排的卡片，所有内容从上到下排成一栏。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -20,7 +20,7 @@
           <path d="M3 6.5h12M3 11.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
         </svg>
       </button>
-      <a href="../">你的名字</a>
+      <a href="../">Quiet</a>
       <span class="q-topbar-sep">/</span>
       <a href="./">文章</a>
       <button class="q-icon-button q-topbar-end" id="theme" aria-label="切换深浅色">
@@ -34,8 +34,15 @@
     <!-- 全屏导航 -->
     <nav class="q-nav" id="nav" hidden>
       <div class="q-nav-group">
-        <a class="q-nav-link" href="../">关于</a>
+        <a class="q-nav-link" href="../">首页</a>
         <a class="q-nav-link" href="../writing/" aria-current="page">文章</a>
+      </div>
+      <div class="q-nav-group">
+        <span class="q-nav-label">示例</span>
+        <a class="q-nav-link" href="../examples/personal.html">个人主页</a>
+        <a class="q-nav-link" href="../examples/product.html">产品首页</a>
+        <a class="q-nav-link" href="../examples/app.html">应用列表</a>
+        <a class="q-nav-link" href="../examples/settings.html">设置页</a>
       </div>
       <div class="q-nav-group">
         <span class="q-nav-label">设计系统</span>
@@ -58,15 +65,17 @@
       </div>
 
       <div class="q-prose">
-        <p>这个网站没有侧边栏，没有并排的卡片，也没有分成几栏的页脚。所有内容从上到下排成一栏。</p>
+        <p>这套设计没有侧边栏，没有并排的卡片，也没有分成几栏的页脚。所有内容从上到下排成一栏，做应用的时候也一样。</p>
         <p>一栏的好处是读者不用决定先看哪里。视线只有一个方向可走，页面的顺序就是阅读的顺序。</p>
         <h3>三种宽度</h3>
-        <p>一栏不等于所有页面一样宽。这里有三种宽度：文章列表最窄，576px；首页居中，672px；文章页最宽，768px，正文一行大约四十个汉字。</p>
+        <p>一栏不等于所有页面一样宽。这里有三种宽度：列表页最窄，576px；介绍页和表单页居中，672px；文章页和带表格的应用页最宽，768px，正文一行大约四十个汉字。</p>
         <p>一个页面只用其中一种。同一页里栏宽变来变去，左边缘对不齐，一栏的好处就没有了。</p>
         <p>手机上三种宽度没有区别，都是屏幕宽度减去左右各 16px 的留白。</p>
         <h3>一栏里怎么分组</h3>
         <p>没有卡片和分隔线，分组靠的是留白和一个灰色的小标签。区块之间空 64px，标签和内容之间空 16px，差了四倍，哪些东西是一组就不用再解释。</p>
-        <p>列表的每一行也在这一栏里排开：主文字在左，灰色的附注跟在后面，等宽字体的日期靠右对齐。到了手机上，这一行会折成上下几行，顺序不变。</p>
+        <p>列表的每一行也在这一栏里排开：主文字在左，灰色的附注跟在后面，等宽字体的日期靠右对齐。表格是同一种东西，只是把每一列对齐了。</p>
+        <h3>应用里放不下怎么办</h3>
+        <p>导航不放在侧边栏里，收进左上角的菜单。设置项多了就分成几页，不分成左右两栏。表格的列太多，就把次要的列挪到详情页。</p>
         <hr />
         <p>一栏也是一种约束。想放的东西放不下的时候，通常该做的是另开一页。</p>
       </div>

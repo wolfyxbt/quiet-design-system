@@ -1,6 +1,6 @@
 /*
  * Quiet Design System — tokens
- * 一套安静的、以排版为主的单栏设计语言。
+ * 一套安静的、以排版为主的单栏设计语言，适用于任何以文字和数据为主的网页。
  * 所有组件只引用下面的语义变量，不直接写色值。
  *
  * 深色模式：默认跟随系统；在 <html> 上写 data-theme="light" 或 "dark" 可强制指定。
@@ -24,6 +24,11 @@
   /* ---------- 强调色：全站只在极小面积出现 ---------- */
   --brand: #fc532a;
 
+  /* ---------- 状态色：只用在 8px 的状态圆点、错误提示和危险操作的文字上 ---------- */
+  --danger: #d93036;
+  --success: #2f9e63;
+  --warning: #e5a000;
+
   /* ---------- 文字：四级灰度承担全部层级 ---------- */
   --text-primary: var(--neutral-900); /* 标题、列表主文字、正文 */
   --text-secondary: var(--neutral-600); /* 大号引言段落 */
@@ -38,6 +43,10 @@
   --bg-quaternary: var(--neutral-200);
   --bg-elevated: #ffffff; /* 浮起的小控件 */
   --bg-hover: rgba(0, 0, 0, 0.08); /* 透明按钮的悬停层 */
+  --bg-inverse: var(--neutral-900); /* 主按钮：一页最多一个 */
+  --bg-inverse-hover: var(--neutral-700);
+  --text-inverse: #ffffff; /* 主按钮上的文字 */
+  --veil: rgba(255, 255, 255, 0.8); /* 对话框后面的遮罩：一层半透明的页面底色 */
 
   /* ---------- 边框 ---------- */
   --border-primary: rgba(0, 0, 0, 0.12);
@@ -108,21 +117,22 @@
   --space-12: 48px;
   --space-16: 64px; /* 区块之间、页面上下留白 */
   --space-20: 80px;
-  --space-32: 128px; /* 个人主页类页面的上下留白（≥640px） */
+  --space-32: 128px; /* 介绍页的上下留白（≥640px） */
 
   /* ---------- 内容宽度 ---------- */
-  --measure-narrow: 576px; /* 索引 / 列表页 */
-  --measure: 672px; /* 默认：个人主页、通用页面 */
-  --measure-wide: 768px; /* 文章 */
+  --measure-narrow: 576px; /* 列表页 */
+  --measure: 672px; /* 默认：介绍页、表单页 */
+  --measure-wide: 768px; /* 文章页、带表格的应用页 */
 
   /* ---------- 圆角 ---------- */
-  --radius-sm: 4px; /* 行内代码 */
-  --radius-lg: 8px; /* 图片、代码块 */
+  --radius-sm: 4px; /* 行内代码、标签 */
+  --radius-lg: 8px; /* 图片、代码块、输入框、对话框 */
   --radius-full: 9999px; /* 按钮、头像、强调短线 */
 
   /* ---------- 尺寸 ---------- */
   --topbar-height: 56px;
-  --control-size: 36px; /* 圆形图标按钮 */
+  --control-size: 36px; /* 圆形图标按钮、按钮 */
+  --field-height: 40px; /* 输入框、下拉框 */
   --pill-height: 28px;
   --avatar-size: 60px;
   --row-icon: 20px;
@@ -154,6 +164,14 @@
     --bg-quaternary: rgba(255, 255, 255, 0.03);
     --bg-elevated: var(--neutral-900);
     --bg-hover: rgba(255, 255, 255, 0.12);
+    --bg-inverse: rgba(255, 255, 255, 0.9);
+    --bg-inverse-hover: #ffffff;
+    --text-inverse: #000000;
+    --veil: rgba(0, 0, 0, 0.7);
+
+    --danger: #ff6166;
+    --success: #46c37b;
+    --warning: #f5b83d;
 
     --border-primary: rgba(255, 255, 255, 0.12);
     --border-secondary: rgba(255, 255, 255, 0.09);
@@ -184,6 +202,14 @@
   --bg-quaternary: rgba(255, 255, 255, 0.03);
   --bg-elevated: var(--neutral-900);
   --bg-hover: rgba(255, 255, 255, 0.12);
+  --bg-inverse: rgba(255, 255, 255, 0.9);
+  --bg-inverse-hover: #ffffff;
+  --text-inverse: #000000;
+  --veil: rgba(0, 0, 0, 0.7);
+
+  --danger: #ff6166;
+  --success: #46c37b;
+  --warning: #f5b83d;
 
   --border-primary: rgba(255, 255, 255, 0.12);
   --border-secondary: rgba(255, 255, 255, 0.09);

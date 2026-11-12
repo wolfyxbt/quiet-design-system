@@ -49,7 +49,6 @@ a {
 :focus-visible {
   outline: 2px solid var(--text-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 /* =========================================================
@@ -175,15 +174,16 @@ a {
   max-width: var(--measure-narrow);
 }
 
-/* 文章页：更宽、区块更紧凑 */
-.q-page--article {
+/* 文章页、应用页：更宽、区块更紧凑 */
+.q-page--article,
+.q-page--app {
   max-width: var(--measure-wide);
   gap: var(--space-8);
   padding: var(--space-12) var(--space-4);
 }
 
 @media (min-width: 640px) {
-  /* 个人主页这类"封面"页面：上下留白翻倍 */
+  /* 介绍页（首页、产品页、个人主页）：上下留白翻倍 */
   .q-page--airy {
     padding-top: var(--space-32);
     padding-bottom: var(--space-32);
@@ -191,14 +191,16 @@ a {
 }
 
 @media (min-width: 768px) {
-  .q-page--article {
+  .q-page--article,
+  .q-page--app {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
 }
 
 @media (min-width: 1024px) {
-  .q-page--article {
+  .q-page--article,
+  .q-page--app {
     padding: var(--space-16) var(--space-8);
   }
 }
@@ -364,6 +366,26 @@ a {
   white-space: nowrap;
 }
 
+/* 行尾的控件（开关、按钮），推到最右 */
+.q-row > .q-row-end {
+  flex: none;
+  margin-left: auto;
+}
+
+/* 手机上也保持一行（行尾有控件时用） */
+.q-row--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.q-row--inline .q-row-main {
+  flex: 1;
+  flex-wrap: wrap;
+  row-gap: 0;
+  min-width: 0;
+}
+
 /* 外链的小箭头等行内图标 */
 .q-row-glyph {
   flex: none;
@@ -470,6 +492,10 @@ a {
   margin: 0;
 }
 
+.q-prose > :first-child {
+  margin-top: 0;
+}
+
 .q-prose a {
   color: inherit;
   text-decoration-line: underline;
@@ -562,7 +588,7 @@ a {
 }
 
 /* =========================================================
-   Pill — 唯一带"实体感"的小控件（点赞、计数、筛选）
+   Pill — 小号的浮起按钮（点赞、计数、翻页）。大一号的见 .q-button
    ========================================================= */
 
 .q-pill {
@@ -630,6 +656,507 @@ a {
 /* 短线下面的标签比普通分组标签深一级 */
 .q-tick + .q-section-label {
   color: var(--text-tertiary);
+}
+
+/* =========================================================
+   Header — 页面标题和它右边的操作
+   ========================================================= */
+
+.q-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* 一排按钮 */
+.q-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* =========================================================
+   Button — 按钮
+   默认是浮起的白色胶囊（和 .q-pill 同一种做法，大一号）；
+   主按钮是实心的，一个页面最多一个。
+   ========================================================= */
+
+.q-button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--control-size);
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-pill);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.q-button:hover {
+  background: var(--bg-tertiary);
+}
+
+.q-button--primary {
+  background: var(--bg-inverse);
+  box-shadow: none;
+  color: var(--text-inverse);
+}
+
+.q-button--primary:hover {
+  background: var(--bg-inverse-hover);
+}
+
+/* 次要操作：平时只有文字，悬停才出现底色（和图标按钮同一种做法） */
+.q-button--ghost {
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-tertiary);
+}
+
+.q-button--ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* 危险操作：只把文字换成红色，不做红色的实心按钮 */
+.q-button--danger {
+  color: var(--danger);
+}
+
+.q-button:disabled,
+.q-button[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* =========================================================
+   Form — 表单
+   输入框没有边框，只有一层浅灰底色（和行内代码同一种灰）。
+   ========================================================= */
+
+.q-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.q-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.q-field-label {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.q-field-hint,
+.q-field-error {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.q-field-error {
+  color: var(--danger);
+}
+
+.q-input,
+.q-textarea,
+.q-select {
+  width: 100%;
+  height: var(--field-height);
+  margin: 0;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--text-base); /* 不小于 16px，手机上点进去才不会自动放大 */
+  line-height: var(--leading-body);
+}
+
+.q-input::placeholder,
+.q-textarea::placeholder {
+  color: var(--text-quaternary);
+  opacity: 1;
+}
+
+.q-input:focus-visible,
+.q-textarea:focus-visible,
+.q-select:focus-visible {
+  outline-offset: 0;
+}
+
+.q-input[aria-invalid="true"],
+.q-textarea[aria-invalid="true"],
+.q-select[aria-invalid="true"] {
+  outline: 2px solid var(--danger);
+  outline-offset: 0;
+}
+
+.q-textarea {
+  height: auto;
+  min-height: 96px;
+  padding: var(--space-2) var(--space-3);
+  resize: vertical;
+}
+
+.q-select {
+  appearance: none;
+  padding-right: var(--space-8);
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 17px center, right 12px center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.q-input:disabled,
+.q-textarea:disabled,
+.q-select:disabled {
+  opacity: 0.5;
+}
+
+/* 单选、多选：用浏览器自带的控件，只把颜色改成主文字色 */
+.q-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.q-check input {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--text-primary);
+}
+
+/* 一组单选或多选，横着排，放不下就换行 */
+.q-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+/* 开关：<input type="checkbox" class="q-switch"> */
+.q-switch {
+  appearance: none;
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  border-radius: var(--radius-full);
+  background: var(--text-quaternary);
+  cursor: pointer;
+  transition: background-color var(--duration) var(--ease);
+}
+
+.q-switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--bg-page);
+  transition: transform var(--duration) var(--ease);
+}
+
+.q-switch:checked {
+  background: var(--text-primary);
+}
+
+.q-switch:checked::after {
+  transform: translateX(16px);
+}
+
+/* =========================================================
+   Tabs — 标签页
+   和导航链接同一种做法：灰色文字，当前项变成主色。没有下划线和底色。
+   ========================================================= */
+
+.q-tabs {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+}
+
+.q-tab {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-tertiary);
+  font-family: inherit;
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--duration) var(--ease);
+}
+
+.q-tab:hover,
+.q-tab[aria-current="page"],
+.q-tab[aria-selected="true"] {
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   Stats — 数据概览
+   灰色小标签在上，大号数字在下。
+   ========================================================= */
+
+.q-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-6) var(--space-8);
+  margin: 0;
+}
+
+.q-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.q-stat-label {
+  color: var(--text-label);
+}
+
+.q-stat-value {
+  margin: 0;
+  font-size: var(--text-title);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-title);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   Table — 表格
+   就是把列对齐了的列表：表头是灰色小标签，没有边框和斑马纹。
+   ========================================================= */
+
+.q-table-wrap {
+  overflow-x: auto;
+}
+
+.q-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+}
+
+.q-table th,
+.q-table td {
+  padding: 5px var(--space-4) 5px 0;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.q-table th:last-child,
+.q-table td:last-child {
+  padding-right: 0;
+}
+
+.q-table thead th {
+  padding-bottom: 11px;
+  font-weight: var(--weight-regular);
+  color: var(--text-label);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.q-table tbody td:first-child,
+.q-table tbody th {
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+.q-table a:hover {
+  text-decoration-line: underline;
+  text-underline-offset: var(--underline-offset-row);
+}
+
+/* 数字和日期：等宽、右对齐 */
+.q-table .q-num {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* 表头里的「字数」「更新」只跟着右对齐，字体和其他表头一样 */
+.q-table thead .q-num {
+  font-family: inherit;
+  font-size: var(--text-base);
+}
+
+/* 次要的一列 */
+.q-muted {
+  color: var(--text-quaternary);
+}
+
+@media (min-width: 640px) {
+  .q-table {
+    font-size: var(--text-xl);
+  }
+
+  .q-table th,
+  .q-table td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .q-table thead th {
+    padding-bottom: 13px;
+    font-size: var(--text-base);
+  }
+
+  .q-table tbody .q-num {
+    font-size: var(--text-mono);
+  }
+}
+
+/* =========================================================
+   Status / Tag — 状态和标签
+   ========================================================= */
+
+/* 状态：一个 8px 的圆点加文字。颜色只在圆点上 */
+.q-status {
+  white-space: nowrap;
+}
+
+.q-status::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--text-quaternary);
+  vertical-align: 0.1em;
+}
+
+.q-status--success::before {
+  background: var(--success);
+}
+
+.q-status--warning::before {
+  background: var(--warning);
+}
+
+.q-status--danger::before {
+  background: var(--danger);
+}
+
+/* 标签：和行内代码同一种灰底 */
+.q-tag {
+  display: inline-block;
+  padding: var(--space-0-5) var(--space-1-5);
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Note — 提示
+   和引用块同一种做法：左边一条细线，文字是三级灰。
+   ========================================================= */
+
+.q-note {
+  margin: 0;
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--border-primary);
+  color: var(--text-tertiary);
+}
+
+.q-note--danger {
+  border-left-color: var(--danger);
+}
+
+/* =========================================================
+   Dialog — 对话框：<dialog class="q-dialog">
+   后面的页面盖上一层半透明的页面底色，不用黑色遮罩。
+   ========================================================= */
+
+.q-dialog {
+  width: calc(100% - var(--space-8));
+  max-width: 448px;
+  padding: var(--space-6);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-pill);
+  color: var(--text-primary);
+}
+
+.q-dialog::backdrop {
+  background: var(--veil);
+}
+
+.q-dialog-title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.q-dialog-body {
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+.q-dialog .q-form {
+  gap: var(--space-4);
+}
+
+.q-dialog .q-actions {
+  justify-content: flex-end;
+  margin-top: var(--space-6);
+}
+
+/* =========================================================
+   Footer — 页脚：一行灰色小字
+   ========================================================= */
+
+.q-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: 0;
+  color: var(--text-tertiary);
+}
+
+.q-footer a:hover {
+  color: var(--text-primary);
 }
 
 /* =========================================================
